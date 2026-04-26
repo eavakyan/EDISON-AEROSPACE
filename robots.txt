@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://edison.aero/sitemap.xml
+
+# Block admin/internal paths
+Disallow: /claude_docs/
+Disallow: /.git/
+Disallow: /.github/
+
+# Block gated investor materials and the API surface
+Disallow: /investors/
+Allow: /investors/access.html
+Disallow: /api/

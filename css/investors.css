@@ -1,0 +1,174 @@
+/* ============================================
+   EDISON AEROSPACE — Investor Gate Page
+   Augments global.css. Only contains styles unique
+   to /investors/access.html.
+   ============================================ */
+
+.investors-gate {
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-dark) 100%);
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-4xl);
+}
+
+.investors-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: var(--space-4xl);
+  align-items: start;
+}
+
+/* ---------- Left column (pitch) ---------- */
+
+.investors-pitch .eyebrow {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-accent-magenta);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--color-accent-magenta);
+}
+
+.investors-pitch h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.1;
+  font-weight: 800;
+  text-transform: none;
+  margin-bottom: var(--space-xl);
+  color: var(--color-white);
+}
+
+.investors-pitch h1 .accent-magenta {
+  color: var(--color-accent-magenta);
+  font-weight: 800;
+}
+
+.investors-pitch .lede {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--color-white);
+  margin-bottom: var(--space-lg);
+}
+
+.investors-pitch .lede em {
+  color: var(--color-accent-magenta);
+  font-style: italic;
+}
+
+.investors-pitch p {
+  font-size: 1rem;
+  color: var(--color-off-white);
+  margin-bottom: var(--space-lg);
+}
+
+.investors-bullets {
+  list-style: none;
+  margin-top: var(--space-xl);
+  padding-left: 0;
+}
+
+.investors-bullets li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: var(--space-sm);
+  color: var(--color-off-white);
+  font-size: 0.95rem;
+}
+
+.investors-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 16px;
+  height: 2px;
+  background-color: var(--color-accent-magenta);
+}
+
+/* ---------- Right column (form / success) ---------- */
+
+.investors-form-wrap {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: var(--space-2xl);
+  position: relative;
+}
+
+.investors-form-wrap .form-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-white);
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.investors-submit {
+  width: 100%;
+  margin-top: var(--space-md);
+}
+
+.investors-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-fineprint {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--color-light-gray);
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.form-fineprint a {
+  color: var(--color-accent-blue);
+  text-decoration: underline;
+}
+
+.form-status {
+  min-height: 1.4em;
+  margin-top: var(--space-md);
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+.form-status.error {
+  color: var(--color-accent-red);
+}
+
+.form-status.info {
+  color: var(--color-light-gray);
+}
+
+/* ---------- Success state ---------- */
+
+.investors-success p {
+  color: var(--color-off-white);
+  margin-bottom: var(--space-md);
+}
+
+.investors-success strong {
+  color: var(--color-white);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .investors-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .investors-form-wrap {
+    padding: var(--space-xl);
+  }
+}

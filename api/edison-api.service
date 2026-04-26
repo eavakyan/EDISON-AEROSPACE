@@ -1,0 +1,28 @@
+[Unit]
+Description=Edison Aerospace API (investor gate)
+After=network.target
+
+[Service]
+Type=simple
+User=edison-api
+Group=edison-api
+WorkingDirectory=/opt/edison-api
+EnvironmentFile=/etc/edison-api.env
+ExecStart=/usr/bin/node /opt/edison-api/src/server.js
+Restart=on-failure
+RestartSec=3
+KillSignal=SIGTERM
+TimeoutStopSec=20
+
+# Hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ReadWritePaths=/var/lib/edison-api
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

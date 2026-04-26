@@ -1,0 +1,443 @@
+/* ─────────────────────────────────────────────────────────────────────
+   EDISON AEROSPACE — Investor Deck Stylesheet
+   Aerospace x Agriculture aesthetic
+   ───────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Sky / horizon */
+  --sky-deep:      #0A1628;   /* night sky / deep ink */
+  --sky-mid:       #15263F;   /* horizon mid */
+  --sky-blue:      #2E6FB7;   /* day sky */
+  --sky-pale:      #C9DCEE;
+
+  /* Earth / agriculture */
+  --soil:          #2A1F14;
+  --crop:          #C8A95E;   /* wheat / amber */
+  --crop-bright:   #E6C874;
+  --field:         #4F6B3A;   /* field green */
+
+  /* Edison brand red — from logo */
+  --spark:         #E31E24;   /* primary red */
+  --spark-bright:  #FF4248;   /* hot red highlight */
+  --signal:        #5BE0B3;   /* electric / sustainability */
+  --amber:         #F5A623;   /* secondary warm — used sparingly */
+
+  /* Neutrals */
+  --paper:         #F4F1EA;   /* warm paper */
+  --paper-2:       #E9E3D6;
+  --ink:           #0D1421;
+  --graphite:      #2A3343;
+  --slate:         #4B5566;
+  --rule:          rgba(13,20,33,0.10);
+  --rule-light:    rgba(255,255,255,0.12);
+
+  --serif:  'Fraunces', 'Source Serif Pro', Georgia, serif;
+  --sans:   'Inter', system-ui, -apple-system, sans-serif;
+  --mono:   'JetBrains Mono', ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; font-family: var(--sans); color: var(--ink); }
+body { background: #000; }
+
+/* ── Slides ─────────────────────────────────────────────────────────── */
+deck-stage section {
+  width: 1920px; height: 1080px;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--paper);
+}
+deck-stage section.night { background: var(--sky-deep); color: #fff; }
+deck-stage section.dusk  { background: var(--sky-mid);  color: #fff; }
+deck-stage section.paper { background: var(--paper); color: var(--ink); }
+deck-stage section.cream { background: var(--paper-2); color: var(--ink); }
+deck-stage section.white { background: #fff; color: var(--ink); }
+
+/* ── Chrome ─────────────────────────────────────────────────────────── */
+.chrome {
+  position: absolute; left: 80px; right: 80px; top: 56px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--mono); font-size: 13px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(13,20,33,0.5);
+  z-index: 5;
+}
+.night .chrome, .dusk .chrome { color: rgba(255,255,255,0.55); }
+
+.chrome .brand-mark {
+  display: flex; align-items: center; gap: 12px;
+  color: var(--ink); font-weight: 600;
+}
+.night .chrome .brand-mark, .dusk .chrome .brand-mark { color: #fff; }
+
+.chrome .brand-mark .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--spark);
+  box-shadow: 0 0 10px var(--spark);
+}
+
+.footer {
+  position: absolute; left: 80px; right: 80px; bottom: 40px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--mono); font-size: 11px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(13,20,33,0.45);
+  z-index: 5;
+}
+.night .footer, .dusk .footer { color: rgba(255,255,255,0.4); }
+
+/* ── Type scale ─────────────────────────────────────────────────────── */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 14px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--spark);
+  margin: 0 0 24px 0;
+  display: inline-flex; align-items: center; gap: 12px;
+}
+.eyebrow::before {
+  content: ""; display: inline-block;
+  width: 36px; height: 1px; background: var(--spark);
+}
+
+h1.display {
+  font-family: var(--serif);
+  font-size: 168px; font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+  margin: 0;
+  font-variation-settings: "opsz" 144;
+  text-wrap: balance;
+}
+h1.title {
+  font-family: var(--serif);
+  font-size: 104px; font-weight: 400;
+  letter-spacing: -0.028em;
+  line-height: 0.98;
+  margin: 0;
+  font-variation-settings: "opsz" 144;
+  text-wrap: balance;
+}
+h2.title {
+  font-family: var(--serif);
+  font-size: 72px; font-weight: 400;
+  letter-spacing: -0.022em;
+  line-height: 1.02;
+  margin: 0;
+  font-variation-settings: "opsz" 144;
+  text-wrap: balance;
+}
+
+.italic { font-style: italic; }
+.amber  { color: var(--spark); }
+.signal { color: var(--signal); }
+.crop   { color: var(--crop-bright); }
+
+.body {
+  font-size: 24px; line-height: 1.5;
+  color: var(--graphite);
+  font-weight: 400;
+}
+.night .body, .dusk .body { color: rgba(255,255,255,0.78); }
+
+.lede {
+  font-size: 32px; line-height: 1.4;
+  color: var(--graphite);
+  font-weight: 400;
+  font-family: var(--serif);
+  font-style: italic;
+}
+.night .lede, .dusk .lede { color: rgba(255,255,255,0.85); }
+
+/* ── Numerals ───────────────────────────────────────────────────────── */
+.numeral {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-variation-settings: "opsz" 144;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+}
+
+/* ── Specs / data labels ────────────────────────────────────────────── */
+.spec-label {
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.night .spec-label, .dusk .spec-label { color: rgba(255,255,255,0.5); }
+
+/* ── Reusable bits ──────────────────────────────────────────────────── */
+.hairline { height: 1px; background: var(--rule); }
+.night .hairline, .dusk .hairline { background: var(--rule-light); }
+
+.tick {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Wheat / horizon line — decorative */
+.horizon {
+  position: absolute; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rule) 20%, var(--rule) 80%, transparent);
+}
+.night .horizon, .dusk .horizon {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18) 20%, rgba(255,255,255,0.18) 80%, transparent);
+}
+
+/* Stat block */
+.stat {
+  border-top: 1px solid var(--ink);
+  padding-top: 18px;
+}
+.night .stat, .dusk .stat { border-top-color: rgba(255,255,255,0.4); }
+.stat .v {
+  font-family: var(--serif);
+  font-size: 96px; font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 0.95;
+  font-variation-settings: "opsz" 144;
+}
+.stat .l {
+  font-family: var(--mono);
+  font-size: 12px; letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-top: 14px;
+}
+.night .stat .l, .dusk .stat .l { color: rgba(255,255,255,0.6); }
+
+/* SVG scribble for crop rows */
+.crop-row {
+  stroke: var(--field);
+  stroke-width: 1.2;
+  fill: none;
+  opacity: 0.4;
+}
+
+/* Soft starfield for night slides */
+.stars {
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 32% 72%, rgba(255,255,255,0.35), transparent),
+    radial-gradient(1px 1px at 58% 12%, rgba(255,255,255,0.4), transparent),
+    radial-gradient(1px 1px at 76% 38%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 88% 78%, rgba(255,255,255,0.45), transparent),
+    radial-gradient(1px 1px at 22% 88%, rgba(255,255,255,0.25), transparent),
+    radial-gradient(1px 1px at 47% 47%, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 92% 22%, rgba(255,255,255,0.35), transparent);
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   MOTION — keyframes + utility classes
+   Slides only animate when they are the .active section in deck-stage.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes drawLine {
+  from { stroke-dashoffset: var(--dash, 1000); }
+  to   { stroke-dashoffset: 0; }
+}
+@keyframes barGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+@keyframes flyAcross {
+  0%   { transform: translate(-200px, 0) rotate(-2deg); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translate(2200px, -40px) rotate(-2deg); opacity: 0.9; }
+}
+@keyframes climb {
+  0%   { transform: translate(-200px, 200px) rotate(-22deg); opacity: 0; }
+  20%  { opacity: 1; }
+  100% { transform: translate(800px, -300px) rotate(-22deg); opacity: 1; }
+}
+@keyframes pulseDot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(227,30,36,0.7); }
+  50%      { box-shadow: 0 0 0 14px rgba(227,30,36,0); }
+}
+@keyframes spinSlow {
+  to { transform: rotate(360deg); }
+}
+@keyframes radarSweep {
+  to { transform: rotate(360deg); }
+}
+@keyframes sprayPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.95); }
+  50%      { opacity: 0.6; transform: scaleY(1.05); }
+}
+@keyframes propBlur {
+  to { transform: rotate(360deg); }
+}
+@keyframes glow {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(227,30,36,0.5)); }
+  50%      { filter: drop-shadow(0 0 24px rgba(227,30,36,0.9)); }
+}
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes ringExpand {
+  0%   { transform: scale(0.7); opacity: 0; }
+  60%  { opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes typewriter {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Slide-scoped animation gating ─────────────────────────────────────── */
+/* Default to visible — animation handles the fade-in via `both` fill mode
+   when active. Without an initial opacity:0, content stays visible if the
+   animation fails to trigger (e.g. visibility:hidden quirks). */
+deck-stage section[data-deck-active] .anim {
+  animation: fadeUp 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+/* delays */
+.d1  { animation-delay: 0.10s !important; }
+.d2  { animation-delay: 0.25s !important; }
+.d3  { animation-delay: 0.40s !important; }
+.d4  { animation-delay: 0.55s !important; }
+.d5  { animation-delay: 0.70s !important; }
+.d6  { animation-delay: 0.85s !important; }
+.d7  { animation-delay: 1.00s !important; }
+.d8  { animation-delay: 1.15s !important; }
+.d9  { animation-delay: 1.30s !important; }
+.d10 { animation-delay: 1.45s !important; }
+
+/* Variants */
+deck-stage section[data-deck-active] .anim-fade     { animation-name: fadeIn; }
+deck-stage section[data-deck-active] .anim-scale    { animation-name: scaleIn; }
+deck-stage section[data-deck-active] .anim-bar      {
+  transform-origin: left center; animation: barGrow 1.2s cubic-bezier(0.2,0.8,0.2,1) both;
+}
+deck-stage section[data-deck-active] .anim-fly      { animation: flyAcross 8s linear both; }
+deck-stage section[data-deck-active] .anim-climb    { animation: climb 4s cubic-bezier(0.2,0.8,0.4,1) both; }
+deck-stage section[data-deck-active] .anim-ring     { animation: ringExpand 1.4s cubic-bezier(0.2,0.8,0.2,1) both; transform-origin: center; }
+deck-stage section[data-deck-active] .anim-draw     {
+  stroke-dasharray: var(--dash, 1000);
+  stroke-dashoffset: var(--dash, 1000);
+  animation: drawLine 2s cubic-bezier(0.45,0,0.15,1) forwards;
+}
+
+/* Always-on motion (independent of slide active state) */
+.pulse-dot       { animation: pulseDot 2.4s ease-out infinite; }
+.spin-slow       { animation: spinSlow 12s linear infinite; transform-origin: center; }
+.radar-sweep     { animation: radarSweep 6s linear infinite; transform-origin: center; }
+.spray-pulse     { animation: sprayPulse 2.5s ease-in-out infinite; transform-origin: center; }
+.prop-blur       { animation: propBlur 0.15s linear infinite; transform-origin: center; }
+.glow-pulse      { animation: glow 3s ease-in-out infinite; }
+.shimmer-text {
+  background: linear-gradient(90deg, currentColor 30%, rgba(255,255,255,0.6) 50%, currentColor 70%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ── Edison logo lockup ─────────────────────────────────────────────────── */
+.brand-logo {
+  display: inline-flex; align-items: center; gap: 14px;
+}
+.brand-logo img {
+  width: 36px; height: 36px;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(227,30,36,0.5));
+}
+.brand-logo .brand-text {
+  font-family: var(--mono);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+/* Floating logo watermark for big slides */
+.logo-watermark {
+  position: absolute;
+  width: 220px; height: 220px;
+  opacity: 0.07;
+  pointer-events: none;
+}
+.logo-watermark img { width: 100%; height: 100%; }
+
+/* ── Slide-specific motion ──────────────────────────────────────────── */
+
+/* Slide 08 — projection chart bars: no animation; static visible. SVG rect attribute selectors + animations had compatibility issues. */
+
+/* Slide 14 — timeline nodes pop in */
+deck-stage section[data-screen-label="14 Roadmap"][data-deck-active] [style*="border-radius:50%"] {
+  animation: scaleIn 0.5s cubic-bezier(0.2,0.8,0.2,1) both;
+}
+
+/* Spray nozzle pulse on Heavy1 plan view (slide 04) */
+deck-stage section[data-screen-label="04 Solution"] svg circle[r="2"] {
+  animation: sprayPulse 2.5s ease-in-out infinite;
+  transform-box: fill-box; transform-origin: center;
+}
+
+/* Logo dot in chrome should pulse */
+.brand-logo img {
+  animation: glow 3.6s ease-in-out infinite;
+}
+
+/* Footer hairline marquee on cover */
+@keyframes hairlineSweep {
+  0%   { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Page-margin tick marks */
+.tick-marks {
+  position: absolute; left: 80px; right: 80px;
+  display: flex; justify-content: space-between;
+  pointer-events: none;
+}
+.tick-marks span {
+  width: 1px; height: 8px;
+  background: rgba(13,20,33,0.18);
+}
+.night .tick-marks span, .dusk .tick-marks span {
+  background: rgba(255,255,255,0.18);
+}
+.tick-marks {
+  position: absolute; left: 80px; right: 80px;
+  display: flex; justify-content: space-between;
+  pointer-events: none;
+}
+.tick-marks span {
+  width: 1px; height: 8px;
+  background: rgba(13,20,33,0.18);
+}
+.night .tick-marks span, .dusk .tick-marks span {
+  background: rgba(255,255,255,0.18);
+}

@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Edison Aerospace — Investor Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="edison-deck.css">
+<script src="deck-stage.js"></script>
+</head>
+<body>
+<deck-stage>
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     SLIDE 01 · COVER
+     ═════════════════════════════════════════════════════════════════════ -->
+<section class="night" data-screen-label="01 Cover">
+  <!-- atmospheric gradient: dawn over a field -->
+  <div style="position:absolute;inset:0;background:
+    radial-gradient(ellipse 80% 60% at 70% 110%, rgba(227,30,36,0.18), transparent 60%),
+    radial-gradient(ellipse 100% 50% at 50% 100%, rgba(46,111,183,0.25), transparent 70%),
+    linear-gradient(180deg, #060E1C 0%, #0A1628 45%, #15263F 80%, #2A1F14 100%);"></div>
+  <div class="stars"></div>
+
+  <!-- horizon glow -->
+  <div style="position:absolute;left:0;right:0;bottom:240px;height:2px;background:linear-gradient(90deg,transparent,rgba(227,30,36,0.55) 30%,rgba(227,30,36,0.8) 50%,rgba(227,30,36,0.55) 70%,transparent);"></div>
+  <div style="position:absolute;left:0;right:0;bottom:0;height:240px;background:linear-gradient(180deg, rgba(227,30,36,0.08), transparent 60%);"></div>
+
+  <!-- crop rows in the foreground -->
+  <svg style="position:absolute;left:0;right:0;bottom:0;width:100%;height:240px;" viewBox="0 0 1920 240" preserveAspectRatio="none">
+    <g stroke="rgba(227,30,36,0.18)" stroke-width="1" fill="none">
+      <path d="M-100 240 L 700 60"/>
+      <path d="M100 240 L 800 60"/>
+      <path d="M300 240 L 900 60"/>
+      <path d="M500 240 L 1000 60"/>
+      <path d="M700 240 L 1100 60"/>
+      <path d="M900 240 L 1200 60"/>
+      <path d="M1100 240 L 1300 60"/>
+      <path d="M1300 240 L 1400 60"/>
+      <path d="M1500 240 L 1500 60"/>
+      <path d="M1700 240 L 1600 60"/>
+      <path d="M1900 240 L 1700 60"/>
+      <path d="M2100 240 L 1800 60"/>
+    </g>
+  </svg>
+
+  <!-- silhouette of aircraft on horizon — flying across -->
+  <svg class="anim-fly" style="position:absolute;left:0;top:calc(100% - 260px);transform:translate(0,-50%);will-change:transform;" width="220" height="60" viewBox="-110 -30 220 60">
+    <g fill="rgba(13,20,33,0.95)" stroke="rgba(227,30,36,0.7)" stroke-width="0.5">
+      <!-- fuselage -->
+      <ellipse cx="0" cy="0" rx="60" ry="3"/>
+      <!-- wings -->
+      <path d="M-90 -1 L 90 -1 L 80 1 L -80 1 Z"/>
+      <!-- tail -->
+      <path d="M-58 -10 L -50 0 L -52 -10 Z"/>
+      <!-- nose -->
+      <circle cx="58" cy="0" r="3"/>
+    </g>
+  </svg>
+
+  <div class="chrome">
+    <div class="brand-mark brand-logo"><img src="edison-logo.png" alt=""/><span class="brand-text">EDISON&nbsp;AEROSPACE</span></div>
+    <span>Investor Briefing · 2026</span>
+  </div>
+
+  <!-- Big animated logo, glowing -->
+  <img src="edison-logo.png" alt="" class="anim anim-scale d1 glow-pulse" style="position:absolute;right:140px;top:230px;width:260px;height:260px;"/>
+
+  <!-- HERO -->
+  <div style="position:absolute;left:120px;right:120px;top:300px;">
+    <div class="eyebrow anim d1" style="color:var(--spark);">Series A &middot; Confidential</div>
+    <h1 class="display anim d2" style="margin-top:32px;color:#fff;">
+      The aerial application<br/>
+      industry hasn&#8217;t<br/>
+      changed in <span class="italic" style="color:var(--spark);">70 years.</span>
+    </h1>
+    <div style="margin-top:56px;font-family:var(--serif);font-style:italic;font-size:36px;color:rgba(255,255,255,0.78);font-weight:300;letter-spacing:-0.005em;max-width:1200px;line-height:1.35;">
+      We&#8217;re replacing the turbine &mdash; not the operator.
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>edison.aero</span>
+    <span style="font-family:var(--serif);font-style:italic;letter-spacing:0;text-transform:none;font-size:14px;color:rgba(255,255,255,0.6);">Safer. Cheaper. Greener. Better.</span>
+    <span>01 / 16</span>
+  </div>
+</section>
+
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     SLIDE 02 · THE OPENING SCENE — A 9 AM MISSION
+     ═════════════════════════════════════════════════════════════════════ -->
+<section class="paper" data-screen-label="02 Opening">
+  <div class="chrome">
+    <div class="brand-mark brand-logo"><img src="edison-logo.png" alt=""/><span class="brand-text">EDISON&nbsp;AEROSPACE</span></div>
+    <span>02 · A morning in the field</span>
+  </div>
+
+  <!-- left column: scene -->
+  <div style="position:absolute;left:120px;top:230px;width:880px;">
+    <div class="eyebrow anim d1">A typical Tuesday in May</div>
+    <h2 class="title anim d2" style="margin-top:24px;">
+      A pilot climbs into a 60-year-old<br/>turbine at <span class="italic">5:42 AM</span>.
+    </h2>
+    <p class="body" style="margin-top:36px;max-width:780px;">
+      He&#8217;ll fly six feet above a soybean field at 140&nbsp;knots, dodging
+      power lines and irrigation rigs, breathing pesticide vapor in an
+      open cockpit. He&#8217;ll burn <b>360 gallons</b> of jet&nbsp;fuel before lunch.
+    </p>
+    <p class="lede anim d3" style="margin-top:32px;color:var(--soil);">
+      Ten of his colleagues will not come home this year.
+    </p>
+  </div>
+
+  <!-- right column: traditional spray plane photo -->
+  <div style="position:absolute;right:80px;top:200px;width:880px;height:680px;overflow:hidden;border:1px solid rgba(13,20,33,0.18);background:#0D1421;">
+    <img src="spray-aircraft.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"/>
+    <!-- caption strip -->
+    <div style="position:absolute;left:0;right:0;bottom:0;padding:16px 20px;background:linear-gradient(180deg,transparent,rgba(13,20,33,0.85));color:rgba(255,255,255,0.9);font-family:var(--mono);font-size:11px;letter-spacing:0.2em;display:flex;justify-content:space-between;">
+      <span>FIG. 02-A &middot; TURBINE AG AIRCRAFT &middot; LOW PASS</span>
+      <span>140 KTS &middot; 6 FT AGL</span>
+    </div>
+    <!-- corner crosshairs -->
+    <div style="position:absolute;left:12px;top:12px;width:18px;height:18px;border-top:1.5px solid rgba(255,255,255,0.7);border-left:1.5px solid rgba(255,255,255,0.7);"></div>
+    <div style="position:absolute;right:12px;top:12px;width:18px;height:18px;border-top:1.5px solid rgba(255,255,255,0.7);border-right:1.5px solid rgba(255,255,255,0.7);"></div>
+  </div>
+
+  <div class="footer">
+    <span>edison.aero</span>
+    <span style="font-family:var(--serif);font-style:italic;letter-spacing:0;text-transform:none;color:var(--soil);">An industry that hasn&#8217;t changed since 1957</span>
+    <span>02 / 16</span>
+  </div>
+</section>
+
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     SLIDE 03 · THE PROBLEM — BIG NUMBERS
+     ═════════════════════════════════════════════════════════════════════ -->
+<section class="cream" data-screen-label="03 Problem">
+  <div class="chrome">
+    <div class="brand-mark brand-logo"><img src="edison-logo.png" alt=""/><span class="brand-text">EDISON&nbsp;AEROSPACE</span></div>
+    <span>03 · The problem, in numbers</span>
+  </div>
+
+  <div style="position:absolute;left:120px;top:220px;right:120px;">
+    <div class="eyebrow anim d1">Three failures of the status quo</div>
+    <h1 class="title anim d2" style="margin-top:24px;max-width:1500px;">
+      A vital industry, propped up by<br/>
+      <span class="italic amber">expensive, dangerous, dirty</span> aircraft.
+    </h1>
+  </div>
+
+  <!-- 3 big stats -->
+  <div style="position:absolute;left:120px;right:120px;top:580px;display:grid;grid-template-columns:repeat(3,1fr);gap:64px;">
+    <div>
+      <div class="numeral" style="font-size:200px;color:var(--ink);">10<span style="font-size:96px;color:var(--slate);">+</span></div>
+      <div style="height:1px;background:var(--ink);margin-top:8px;"></div>
+      <div class="spec-label" style="margin-top:16px;">PILOTS KILLED &middot; US &middot; PER YEAR</div>
+      <div class="body" style="margin-top:14px;font-size:18px;color:var(--slate);">Many more injured during crop-protection missions. High-stress work, flying at low altitude, with chemical exposure added.</div>
+    </div>
+    <div>
+      <div class="numeral" style="font-size:200px;color:var(--ink);">125<span style="font-size:60px;color:var(--slate);font-style:italic;">M</span></div>
+      <div style="height:1px;background:var(--ink);margin-top:8px;"></div>
+      <div class="spec-label" style="margin-top:16px;">GALLONS OF AVIATION FUEL &middot; US &middot; ANNUALLY</div>
+      <div class="body" style="margin-top:14px;font-size:18px;color:var(--slate);">Burned by the US aerial application fleet alone. Chemicals settle on the food we eat.</div>
+    </div>
+    <div>
+      <div class="numeral" style="font-size:200px;color:var(--ink);">$1.8<span style="font-size:60px;color:var(--slate);">M+</span></div>
+      <div style="height:1px;background:var(--ink);margin-top:8px;"></div>
+      <div class="spec-label" style="margin-top:16px;">PRICE OF A NEW TURBINE SPRAYER</div>
+      <div class="body" style="margin-top:14px;font-size:18px;color:var(--slate);">Most operators run 1&ndash;2 aircraft. Margins are thin. New equipment is mostly out of reach.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Sources: NAAA &middot; FAA &middot; USDA-ARS</span>
+    <span>03 / 16</span>
+  </div>
+</section>
+
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     SLIDE 04 · THE SOLUTION — HEAVY1 REVEAL
+     ═════════════════════════════════════════════════════════════════════ -->
+<section class="dusk" data-screen-label="04 Solution">
+  <!-- ambient -->
+  <div style="position:absolute;inset:0;background:
+    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(227,30,36,0.10), transparent 70%),
+    linear-gradient(180deg, #0A1628 0%, #15263F 100%);"></div>
+
+  <div class="chrome">
+    <div class="brand-mark brand-logo"><img src="edison-logo.png" alt=""/><span class="brand-text">EDISON&nbsp;AEROSPACE</span></div>
+    <span>04 · The solution</span>
+  </div>
+
+  <div style="position:absolute;left:120px;top:200px;">
+    <div class="eyebrow anim d1">Introducing</div>
+    <h1 class="display anim d2" style="margin-top:24px;color:#fff;font-size:200px;letter-spacing:-0.04em;line-height:1.0;">Heavy<span class="italic amber">1</span></h1>
+    <div style="margin-top:24px;font-family:var(--mono);font-size:14px;letter-spacing:0.3em;color:rgba(255,255,255,0.55);">
+      A FULL-SIZE, ELECTRIC, REMOTELY-PILOTED AG AIRCRAFT
+    </div>
+  </div>
+
+  <!-- Heavy1 photo from the website -->
+  <div style="position:absolute;left:120px;right:120px;top:560px;height:380px;border:1px solid rgba(255,255,255,0.18);overflow:hidden;">
+    <img src="heavy1-render.jpg" alt="Heavy1 head-on render" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%;filter:contrast(1.05);"/>
+    <!-- gradient vignette -->
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,40,0.35) 0%, transparent 30%, transparent 70%, rgba(10,22,40,0.55) 100%);"></div>
+    <!-- caption strip -->
+    <div style="position:absolute;left:0;right:0;bottom:0;padding:14px 24px;color:rgba(255,255,255,0.65);font-family:var(--mono);font-size:11px;letter-spacing:0.25em;display:flex;justify-content:space-between;">
+      <span>FIG. 04-A &middot; HEAVY1 &middot; FRONT ELEVATION</span>
+      <span>PATENT PENDING</span>
+    </div>
+  </div>
+
+  <!-- spec strip on right of title -->
+  <div style="position:absolute;right:120px;top:240px;display:grid;grid-template-columns:repeat(2,180px);gap:48px 56px;">
+    <div>
+      <div class="numeral" style="font-size:64px;color:#fff;">40<span style="font-size:28px;color:rgba(255,255,255,0.6);">&#8242;</span></div>
+      <div class="spec-label" style="color:rgba(255,255,255,0.55);margin-top:6px;">WINGSPAN</div>
+    </div>
+    <div>
+      <div class="numeral" style="font-size:64px;color:#fff;">3,000<span style="font-size:24px;color:rgba(255,255,255,0.6);">lb</span></div>
+      <div class="spec-label" style="color:rgba(255,255,255,0.55);margin-top:6px;">GROSS WEIGHT</div>
+    </div>
+    <div>
+      <div class="numeral" style="font-size:64px;color:#fff;">200<span style="font-size:24px;color:rgba(255,255,255,0.6);">gal</span></div>
+      <div class="spec-label" style="color:rgba(255,255,255,0.55);margin-top:6px;">PAYLOAD</div>
+    </div>
+    <div>
+      <div class="numeral" style="font-size:64px;color:#fff;">1<span style="font-size:24px;color:rgba(255,255,255,0.6);">&nbsp;hr</span></div>
+      <div class="spec-label" style="color:rgba(255,255,255,0.55);margin-top:6px;">ENDURANCE</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>FAA Experimental SAC process in progress</span>
+    <span>04 / 16</span>
+  </div>
+</section>
+
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     SLIDE 05 · WHY ELECTRIC — ECONOMICS
+     ═════════════════════════════════════════════════════════════════════ -->
+<section class="paper" data-screen-label="05 Economics">
+  <div class="chrome">
+    <div class="brand-mark brand-logo"><img src="edison-logo.png" alt=""/><span class="brand-text">EDISON&nbsp;AEROSPACE</span></div>
+    <span>05 · Cost of ownership</span>
+  </div>
+
+  <div style="position:absolute;left:120px;top:220px;right:120px;">
+    <div class="eyebrow anim d1">Per-flight-hour economics</div>
+    <h2 class="title anim d2" style="margin-top:24px;max-width:1400px;">
+      Operators save <span class="italic amber">50% on operating costs</span><br/>
+      and a <span class="italic amber">LOT</span> on buying the aircraft itself.
+    </h2>
+  </div>
+
+  <!-- comparison chart -->
+  <div style="position:absolute;left:120px;right:120px;top:560px;">
+    <!-- labels row -->
+    <div style="display:grid;grid-template-columns:200px 1fr 200px;align-items:center;margin-bottom:18px;">
+      <div class="spec-label">FUEL / ENERGY</div>
+      <div></div>
+      <div class="spec-label" style="text-align:right;">$ / FLIGHT HOUR</div>
+    </div>
+
+    <!-- Turbine bar -->
+    <div style="display:grid;grid-template-columns:200px 1fr 200px;align-items:center;gap:24px;margin-bottom:14px;">
+      <div style="font-family:var(--serif);font-size:32px;font-style:italic;color:var(--ink);">Turbine</div>
+      <div class="anim-bar d2" style="height:48px;background:linear-gradient(90deg, #2A1F14 0%, #4B3520 100%);width:96%;border-radius:1px;position:relative;">
+        <span style="position:absolute;right:16px;top:50%;transform:translateY(-50%);color:#fff;font-family:var(--mono);font-size:14px;letter-spacing:0.2em;">$300/hr fuel</span>
+      </div>
+      <div style="font-family:var(--serif);font-size:36px;text-align:right;">$300</div>
+    </div>
+
+    <!-- Heavy1 bar -->
+    <div style="display:grid;grid-template-columns:200px 1fr 200px;align-items:center;gap:24px;margin-bottom:48px;">
+      <div style="font-family:var(--serif);font-size:32px;font-style:italic;color:var(--spark);">Heavy1</div>
+      <div class="anim-bar d3" style="height:48px;background:linear-gradient(90deg, #E31E24 0%, #FF4248 100%);width:6%;border-radius:1px;position:relative;">
+        <span style="position:absolute;left:calc(100% + 16px);top:50%;transform:translateY(-50%);color:var(--ink);font-family:var(--mono);font-size:14px;letter-spacing:0.2em;">$18/hr electricity</span>
+      </div>
+      <div style="font-family:var(--serif);font-size:36px;text-align:right;color:var(--spark);">$18</div>
+    </div>
+
+    <div class="hairline"></div>
+
+    <!-- Overhaul -->
+    <div style="display:grid;grid-template-columns:200px 1fr 200px;align-items:center;margin:32px 0 18px;">
+      <div class="spec-label">POWERTRAIN OVERHAUL</div>
+      <div></div>
+      <div class="spec-label" style="text-align:right;">$ AT TBO</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:200px 1fr 200px;align-items:center;gap:24px;margin-bottom:14px;">
+      <div style="font-family:var(--serif);font-size:32px;font-style:italic;color:var(--ink);">Turbine</div>
+      <div class="anim-bar d2" style="height:48px;background:linear-gradient(90deg, #2A1F14 0%, #4B3520 100%);width:96%;border-radius:1px;position:relative;">
+        <span style="position:absolute;right:16px;top:50%;transform:translateY(-50%);color:#fff;font-family:var(--mono);font-size:14px;letter-spacing:0.2em;">$400,000 every 3,500 hrs</span>
+      </div>
+      <div style="font-family:var(--serif);font-size:36px;text-align:right;">$400K</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:200px 1fr 200px;align-items:center;gap:24px;">
+      <div style="font-family:var(--serif);font-size:32px;font-style:italic;color:var(--spark);">Heavy1</div>
+      <div class="anim-bar d3" style="height:48px;background:linear-gradient(90deg, #E31E24 0%, #FF4248 100%);width:5%;border-radius:1px;position:relative;">
+        <span style="position:absolute;left:calc(100% + 16px);top:50%;transform:translateY(-50%);color:var(--ink);font-family:var(--mono);font-size:14px;letter-spacing:0.2em;">$20,000 every 2,000 hrs</span>
+      </div>
+      <div style="font-family:var(--serif);font-size:36px;text-align:right;color:var(--spark);">$20K</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Edison internal cost model · 2025</span>
+    <span>05 / 16</span>
+  </div>
+</section>
+
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     SLIDE 06 · MARKET — TAM/SAM/SOM
+     ═════════════════════════════════════════════════════════════════════ -->
+<section class="night" data-screen-label="06 Market">
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg,#0A1628 0%,#15263F 100%);"></div>
+  <div class="stars"></div>
+
+  <div class="chrome">
+    <div class="brand-mark brand-logo"><img src="edison-logo.png" alt=""/><span class="brand-text">EDISON&nbsp;AEROSPACE</span></div>
+    <span>06 · Market size</span>
+  </div>
+
+  <div style="position:absolute;left:120px;top:200px;">
+    <div class="eyebrow anim d1">A vital market, asleep</div>
+    <h2 class="title anim d2" style="margin-top:24px;color:#fff;max-width:1100px;">
+      A <span class="italic amber">$17.9B</span> global market<br/>
+      ready to electrify.
+    </h2>
+    <p class="lede anim d3" style="margin-top:32px;color:rgba(255,255,255,0.7);max-width:900px;">
+      The aerial application industry is fragmented, under-capitalized, and overdue for a fleet refresh.
+    </p>
+  </div>
+
+  <!-- concentric circles diagram -->
+  <div style="position:absolute;right:140px;top:200px;width:760px;height:760px;">
+    <svg viewBox="0 0 760 760" style="width:100%;height:100%;">
+      <!-- TAM -->
+      <circle class="anim-ring d1" cx="380" cy="380" r="370" fill="rgba(46,111,183,0.10)" stroke="rgba(255,255,255,0.25)" stroke-width="1" stroke-dasharray="2 6"/>
+      <!-- SAM -->
+      <circle class="anim-ring d2" cx="380" cy="380" r="260" fill="rgba(46,111,183,0.18)" stroke="rgba(255,255,255,0.4)" stroke-width="1" stroke-dasharray="2 6"/>
+      <!-- SOM -->
+      <circle class="anim-ring d3 glow-pulse" cx="380" cy="380" r="120" fill="rgba(227,30,36,0.85)" stroke="#E31E24" stroke-width="1.5"/>
+
+      <!-- SOM label center -->
+      <text x="380" y="372" font-family="Fraunces" font-size="48" fill="#0A1628" text-anchor="middle" letter-spacing="-2">$1.5B</text>
+      <text x="380" y="402" font-family="JetBrains Mono" font-size="11" fill="#0A1628" text-anchor="middle" letter-spacing="2">SOM</text>
+      <text x="380" y="420" font-family="JetBrains Mono" font-size="9" fill="rgba(10,22,40,0.7)" text-anchor="middle" letter-spacing="1">10+ AIRCRAFT US/LATAM</text>
+
+      <!-- SAM label -->
+      <text x="380" y="156" font-family="Fraunces" font-size="36" fill="#fff" text-anchor="middle" letter-spacing="-1">$8.9B</text>
+      <text x="380" y="178" font-family="JetBrains Mono" font-size="10" fill="rgba(255,255,255,0.7)" text-anchor="middle" letter-spacing="2">SAM &middot; US + LATAM</text>
+
+      <!-- TAM label -->
+      <text x="380" y="46" font-family="Fraunces" font-size="36" fill="#fff" text-anchor="middle" letter-spacing="-1">$17.9B</text>
+      <text x="380" y="68" font-family="JetBrains Mono" font-size="10" fill="rgba(255,255,255,0.7)" text-anchor="middle" letter-spacing="2">TAM &middot; GLOBAL AERIAL APPLICATION</text>
+    </svg>
+  </div>
+
+  <!-- bottom strip -->
+  <div style="position:absolute;left:120px;right:120px;bottom:130px;display:grid;grid-template-columns:repeat(3,1fr);gap:48px;">
+    <div>
+      <div class="spec-label" style="color:rgba(255,255,255,0.5);">TAM</div>
+      <div class="hairline" style="margin:12px 0;"></div>
+      <div style="font-size:18px;color:rgba(255,255,255,0.78);font-family:var(--serif);font-style:italic;">30,000 Heavy1s + 15,000 ground stations replacing turbine fleets worldwide.</div>
+    </div>
+    <div>
+      <div class="spec-label" style="color:rgba(255,255,255,0.5);">SAM</div>
+      <div class="hairline" style="margin:12px 0;"></div>
+      <div style="font-size:18px;color:rgba(255,255,255,0.78);font-family:var(--serif);font-style:italic;">15,000 aircraft into US &amp; Latin American operators &mdash; our home market.</div>
+    </div>
+    <div>
+      <div class="spec-label" style="color:#E31E24;">SOM &middot; 6-YR TARGET</div>
+      <div class="hairline" style="margin:12px 0;background:rgba(227,30,36,0.4);"></div>
+      <div style="font-size:18px;color:rgba(255,255,255,0.92);font-family:var(--serif);font-style:italic;">2,500 aircraft into the ~250 mid-and-large operators who own 10+ planes today.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>edison.aero</span>
+    <span>06 / 16</span>
+  </div>
+</section>
+
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     SLIDE 07 · BUSINESS MODEL — REVENUE STREAMS
+     ═════════════════════════════════════════════════════════════════════ -->
+<section class="paper" data-screen-label="07 Business Model">
+  <div class="chrome">
+    <div class="brand-mark brand-logo"><img src="edison-logo.png" alt=""/><span class="brand-text">EDISON&nbsp;AEROSPACE</span></div>
+    <span>07 · Revenue model</span>
+  </div>
+
+  <div style="position:absolute;left:120px;top:220px;right:120px;">
+    <div class="eyebrow">Five complementary streams</div>
+    <h2 class="title" style="margin-top:24px;max-width:1500px;">
+      We sell aircraft. <span class="italic" style="color:var(--slate);">We also lease them</span> &mdash;<br/>
+      cutting operator start-up costs, creating ARR for us.
+    </h2>
+    <p class="body" style="margin-top:28px;max-width:1200px;font-size:20px;line-height:1.55;color:var(--slate);">
+      Operators only pay for the ~6 months a year they actually fly. They avoid the seven-figure cap-ex hit
+      to start a business. We keep an asset on our balance sheet that pays us monthly for the life of the airframe.
+    </p>
+  </div>
+
+  <!-- Revenue stream cards -->
+  <div style="position:absolute;left:120px;right:120px;top:560px;display:grid;grid-template-columns:repeat(5,1fr);gap:20px;">
+
+    <div style="background:#fff;border:1px solid var(--rule);padding:32px 28px;position:relative;border-top:3px solid var(--spark);">
+      <div class="spec-label">01 &middot; SALES</div>
+      <div class="numeral" style="font-size:56px;margin-top:24px;">$1.27<span style="font-size:24px;">M</span></div>
+      <div class="body" style="font-size:15px;margin-top:14px;color:var(--slate);">Avg. package: 2 aircraft + 1 ground control station.</div>
+      <div style="margin-top:auto;padding-top:24px;font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink);">100%+ GROSS MARGIN</div>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--rule);padding:32px 28px;border-top:3px solid var(--spark);">
+      <div class="spec-label">02 &middot; SUBSCRIPTION</div>
+      <div class="numeral" style="font-size:56px;margin-top:24px;">$15<span style="font-size:24px;">K/mo</span></div>
+      <div class="body" style="font-size:15px;margin-top:14px;color:var(--slate);">Aircraft-as-a-service. 6-month minimum, service included.</div>
+      <div style="padding-top:24px;font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--spark);">RECURRING &middot; MRR</div>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--rule);padding:32px 28px;border-top:3px solid var(--spark);">
+      <div class="spec-label">03 &middot; SERVICE</div>
+      <div class="numeral" style="font-size:56px;margin-top:24px;">3<span style="font-size:24px;">%</span></div>
+      <div class="body" style="font-size:15px;margin-top:14px;color:var(--slate);">Of fleet value, annually. Maintenance &amp; field repairs.</div>
+      <div style="padding-top:24px;font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink);">FLEET-LINKED</div>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--rule);padding:32px 28px;border-top:3px solid var(--spark);">
+      <div class="spec-label">04 &middot; SERVICE PLAN</div>
+      <div class="numeral" style="font-size:56px;margin-top:24px;">$1.5<span style="font-size:24px;">K/mo</span></div>
+      <div class="body" style="font-size:15px;margin-top:14px;color:var(--slate);">Pre-paid by purchasers. Deferred liability, immediate cash.</div>
+      <div style="padding-top:24px;font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--spark);">PREPAID MRR</div>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--rule);padding:32px 28px;border-top:3px solid var(--spark);">
+      <div class="spec-label">05 &middot; TRAINING</div>
+      <div class="numeral" style="font-size:56px;margin-top:24px;">$400<span style="font-size:24px;">/mo</span></div>
+      <div class="body" style="font-size:15px;margin-top:14px;color:var(--slate);">Transition + recurrent currency programs for pilots.</div>
+      <div style="padding-top:24px;font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--ink);">PER PILOT</div>
+    </div>
+  </div>
+
+  <!-- Year 3 callout -->
+  <div style="position:absolute;left:120px;right:120px;bottom:120px;padding:28px 36px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:48px;">
+    <div>
+      <div class="spec-label" style="color:rgba(255,255,255,0.55);">YEAR 3 SALES TARGET</div>
+      <div style="font-family:var(--serif);font-size:42px;margin-top:6px;letter-spacing:-0.02em;">100 aircraft &middot; 50 ground stations</div>
+    </div>
+    <div style="text-align:right;">
+      <div class="numeral" style="font-size:80px;color:var(--spark);">$105.6<span style="font-size:32px;color:rgba(255,255,255,0.6);">M</span></div>
+      <div class="spec-label" style="color:rgba(255,255,255,0.55);text-align:right;margin-top:4px;">PROJECTED &middot; YEAR 3</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>edison.aero</span>
+    <span>07 / 16</span>
+  </div>
+</section>
+
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     SLIDE 08 · 10-YEAR PROJECTION CHART
+     ═════════════════════════════════════════════════════════════════════ -->
+<section class="cream" data-screen-label="08 Projection">
+  <div class="chrome">
+    <div class="brand-mark brand-logo"><img src="edison-logo.png" alt=""/><span class="brand-text">EDISON&nbsp;AEROSPACE</span></div>
+    <span>08 · Gross profit projection</span>
+  </div>
+
+  <div style="position:absolute;left:120px;top:220px;right:120px;">
+    <div class="eyebrow anim d1">Conservative · 10-year projections</div>
+    <h2 class="title anim d2" style="margin-top:24px;max-width:1500px;">
+      Profitability by <span class="italic amber">Year 4</span>.<br/>
+      Billion-dollar valuation by Year 10.
+    </h2>
+  </div>
+
+  <!-- chart -->
+  <div style="position:absolute;left:120px;right:120px;top:560px;height:380px;">
+    <svg viewBox="0 0 1680 380" style="width:100%;height:100%;">
+      <!-- grid -->
+      <g stroke="rgba(13,20,33,0.08)" stroke-width="1">
+        <line x1="80" y1="40" x2="1640" y2="40"/>
+        <line x1="80" y1="100" x2="1640" y2="100"/>
+        <line x1="80" y1="160" x2="1640" y2="160"/>
+        <line x1="80" y1="220" x2="1640" y2="220"/>
+        <line x1="80" y1="280" x2="1640" y2="280"/>
+      </g>
+      <!-- y axis labels -->
+      <g font-family="JetBrains Mono" font-size="10" fill="#4B5566" letter-spacing="1.5">
+        <text x="70" y="44" text-anchor="end">$250M</text>
+        <text x="70" y="104" text-anchor="end">$200M</text>
+        <text x="70" y="164" text-anchor="end">$125M</text>
+        <text x="70" y="224" text-anchor="end">$60M</text>
+        <text x="70" y="284" text-anchor="end">$0</text>
+      </g>
+      <!-- x axis -->
+      <line x1="80" y1="280" x2="1640" y2="280" stroke="#0D1421" stroke-width="1"/>
+
+      <!-- breakeven line at year 4 -->
+      <line x1="80" y1="252" x2="1640" y2="252" stroke="rgba(227,30,36,0.5)" stroke-width="1" stroke-dasharray="3 4"/>
+
+      <!-- bars (10 years, illustrative growth) -->
+      <g>
+        <!-- Year 1 -->
+        <rect x="120" y="278" width="100" height="2" fill="#2A1F14"/>
+        <!-- Year 2 -->
+        <rect x="276" y="275" width="100" height="5" fill="#2A1F14"/>
+        <!-- Year 3 -->
+        <rect x="432" y="266" width="100" height="14" fill="#4B3520"/>
+        <!-- Year 4 (profit) -->
+        <rect x="588" y="252" width="100" height="28" fill="#E31E24"/>
+        <!-- Year 5 -->
+        <rect x="744" y="223" width="100" height="57" fill="#E31E24"/>
+        <!-- Year 6 -->
+        <rect x="900" y="190" width="100" height="90" fill="#E31E24"/>
+        <!-- Year 7 -->
+        <rect x="1056" y="153" width="100" height="127" fill="#E31E24"/>
+        <!-- Year 8 -->
+        <rect x="1212" y="115" width="100" height="165" fill="#E31E24"/>
+        <!-- Year 9 -->
+        <rect x="1368" y="82" width="100" height="198" fill="#E31E24"/>
+        <!-- Year 10 -->
+        <rect x="1524" y="44" width="100" height="236" fill="#E31E24"/>
+      </g>
+
+      <!-- year labels -->
+      <g font-family="JetBrains Mono" font-size="11" fill="#4B5566" letter-spacing="1.5" text-anchor="middle">
+        <text x="170" y="305">Y1</text>
+        <text x="326" y="305">Y2</text>
+        <text x="482" y="305">Y3</text>
+        <text x="638" y="305">Y4</text>
+        <text x="794" y="305">Y5</text>
+        <text x="950" y="305">Y6</text>
+        <text x="1106" y="305">Y7</text>
+        <text x="1262" y="305">Y8</text>
+        <text x="1418" y="305">Y9</text>
+        <text x="1574" y="305">Y10</text>
+      </g>
+
+      <!-- callout: profitability -->
+      <g>
+        <line x1="638" y1="252" x2="638" y2="200" stroke="#E31E24" stroke-width="1" stroke-dasharray="2 3"/>
+        <circle cx="638" cy="200" r="4" fill="#E31E24"/>
+        <text x="650" y="188" font-family="Fraunces" font-style="italic" font-size="22" fill="#0D1421">Profitability</text>
+        <text x="650" y="210" font-family="JetBrains Mono" font-size="10" fill="#4B5566" letter-spacing="2">YEAR 4 &middot; BREAKEVEN</text>
+      </g>
+
+      <!-- callout: $250M -->
+      <g>
+        <line x1="1574" y1="44" x2="1380" y2="22" stroke="#E31E24" stroke-width="1" stroke-dasharray="2 3"/>
+        <text x="1370" y="24" font-family="Fraunces" font-style="italic" font-size="22" fill="#0D1421" text-anchor="end">$250M revenue</text>
+      </g>
+
+      <!-- Series A marker -->
+      <g>
+        <line x1="326" y1="40" x2="326" y2="280" stroke="rgba(46,111,183,0.5)" stroke-width="1"/>
+        <circle cx="326" cy="40" r="4" fill="#2E6FB7"/>
+        <text x="334" y="40" font-family="JetBrains Mono" font-size="10" fill="#2E6FB7" letter-spacing="2">SERIES A &middot; $10M</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="footer">
+    <span>Conservative model · Series A funding assumed Y2 · Pre-money $50M</span>
+    <span>08 / 16</span>
+  </div>
+</section>
+
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     SLIDE 09 · COMPETITIVE LANDSCAPE
+     ═════════════════════════════════════════════════════════════════════ -->
+<section class="white" data-screen-label="09 Competition">
+  <div class="chrome">
+    <div class="brand-mark brand-logo"><img src="edison-logo.png" alt=""/><span class="brand-text">EDISON&nbsp;AEROSPACE</span></div>
+    <span>09 · Competitive landscape</span>
+  </div>
+
+  <div style="position:absolute;left:120px;top:220px;right:120px;">
+    <div class="eyebrow anim d1">Why we win</div>
+    <h2 class="title anim d2" style="margin-top:24px;max-width:1500px;">
+      Incumbents make planes for pilots.<br/>
+      <span class="italic amber">We make planes for fleet operators.</span>
+    </h2>
+  </div>
+
+  <!-- Positioning matrix -->
+  <div style="position:absolute;left:120px;top:560px;width:880px;height:420px;">
+    <svg viewBox="0 0 880 420" style="width:100%;height:100%;">
+      <!-- axes -->
+      <line x1="60" y1="380" x2="860" y2="380" stroke="#0D1421" stroke-width="1"/>
+      <line x1="60" y1="20" x2="60" y2="380" stroke="#0D1421" stroke-width="1"/>
+
+      <!-- arrows -->
+      <path d="M 854 374 L 860 380 L 854 386" fill="none" stroke="#0D1421" stroke-width="1"/>
+      <path d="M 54 26 L 60 20 L 66 26" fill="none" stroke="#0D1421" stroke-width="1"/>
+
+      <!-- axis labels -->
+      <text x="860" y="402" font-family="JetBrains Mono" font-size="11" fill="#4B5566" letter-spacing="2" text-anchor="end">FULL FLEET REPLACEMENT &rarr;</text>
+      <text x="60" y="420" font-family="JetBrains Mono" font-size="11" fill="#4B5566" letter-spacing="2">NICHE</text>
+      <text x="60" y="14" font-family="JetBrains Mono" font-size="11" fill="#4B5566" letter-spacing="2">ELECTRIC &uarr;</text>
+      <text x="120" y="420" font-family="JetBrains Mono" font-size="11" fill="#4B5566" letter-spacing="2">&middot; FOSSIL</text>
+
+      <!-- AirTractor — bottom right (full fleet, fossil) -->
+      <g>
+        <circle cx="700" cy="320" r="42" fill="rgba(74,53,32,0.15)" stroke="#4B3520" stroke-width="1"/>
+        <text x="700" y="318" font-family="Fraunces" font-size="20" fill="#0D1421" text-anchor="middle">AirTractor</text>
+        <text x="700" y="338" font-family="JetBrains Mono" font-size="9" fill="#4B5566" text-anchor="middle" letter-spacing="2">194/YR &middot; $750M VAL</text>
+      </g>
+      <!-- Thrush — bottom right, smaller -->
+      <g>
+        <circle cx="580" cy="340" r="28" fill="rgba(74,53,32,0.12)" stroke="#4B3520" stroke-width="1"/>
+        <text x="580" y="340" font-family="Fraunces" font-size="16" fill="#0D1421" text-anchor="middle">Thrush</text>
+        <text x="580" y="356" font-family="JetBrains Mono" font-size="9" fill="#4B5566" text-anchor="middle" letter-spacing="2">40/YR &middot; $200M</text>
+      </g>
+      <!-- Pyka — top left (electric, niche) -->
+      <g>
+        <circle cx="240" cy="120" r="32" fill="rgba(46,111,183,0.15)" stroke="#2E6FB7" stroke-width="1"/>
+        <text x="240" y="118" font-family="Fraunces" font-size="18" fill="#0D1421" text-anchor="middle">Pyka</text>
+        <text x="240" y="138" font-family="JetBrains Mono" font-size="9" fill="#4B5566" text-anchor="middle" letter-spacing="2">60-GAL &middot; $50M VAL</text>
+      </g>
+      <!-- Edison — top right (electric, full replacement) -->
+      <g>
+        <circle cx="720" cy="100" r="56" fill="rgba(227,30,36,0.20)" stroke="#E31E24" stroke-width="2"/>
+        <text x="720" y="96" font-family="Fraunces" font-size="22" fill="#0D1421" text-anchor="middle" font-style="italic">Edison</text>
+        <text x="720" y="118" font-family="JetBrains Mono" font-size="9" fill="#0D1421" text-anchor="middle" letter-spacing="2" font-weight="bold">200-GAL &middot; FULL-SIZE</text>
+      </g>
+
+      <!-- empty quadrant labels -->
+      <text x="450" y="60" font-family="Fraunces" font-style="italic" font-size="14" fill="rgba(13,20,33,0.3)" text-anchor="middle">empty quadrant &mdash; our home</text>
+    </svg>
+  </div>
+
+  <!-- Comparative advantage list -->
+  <div style="position:absolute;right:120px;top:560px;width:760px;">
+    <div class="spec-label" style="margin-bottom:24px;">EDISON&#8217;S MOAT</div>
+
+    <div style="display:flex;gap:24px;padding:20px 0;border-bottom:1px solid var(--rule);">
+      <div class="numeral" style="font-size:36px;color:var(--spark);min-width:60px;">01</div>
+      <div>
+        <div style="font-family:var(--serif);font-size:24px;font-style:italic;">Patent-protected design</div>
+        <div class="body" style="font-size:16px;color:var(--slate);margin-top:4px;">US provisional patents on key airframe and powertrain IP.</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:24px;padding:20px 0;border-bottom:1px solid var(--rule);">
+      <div class="numeral" style="font-size:36px;color:var(--spark);min-width:60px;">02</div>
+      <div>
+        <div style="font-family:var(--serif);font-size:24px;font-style:italic;">Mass-producible</div>
+        <div class="body" style="font-size:16px;color:var(--slate);margin-top:4px;">Far less labor than turbine peers; supplier-agnostic BOM.</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:24px;padding:20px 0;border-bottom:1px solid var(--rule);">
+      <div class="numeral" style="font-size:36px;color:var(--spark);min-width:60px;">03</div>
+      <div>
+        <div style="font-family:var(--serif);font-size:24px;font-style:italic;">Operator-first GTM</div>
+        <div class="body" style="font-size:16px;color:var(--slate);margin-top:4px;">We sell to the spray operator, not the farmer. Pyka tried the latter.</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:24px;padding:20px 0;">
+      <div class="numeral" style="font-size:36px;color:var(--spark);min-width:60px;">04</div>
+      <div>
+        <div style="font-family:var(--serif);font-size:24px;font-style:italic;">Lease subscription</div>
+        <div class="body" style="font-size:16px;color:var(--slate);margin-top:4px;">Customers pay only the 6 months they fly. Nobody else offers this.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Funding/valuation comparables: AirTractor, Thrush, Pyka, Joby, Anduril</span>
+    <span>09 / 16</span>
+  </div>
+</section>
+
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     SLIDE 10 · TRACTION
+     ═════════════════════════════════════════════════════════════════════ -->
+<section class="paper" data-screen-label="10 Traction">
+  <div class="chrome">
+    <div class="brand-mark brand-logo"><img src="edison-logo.png" alt=""/><span class="brand-text">EDISON&nbsp;AEROSPACE</span></div>
+    <span>10 · Customer traction</span>
+  </div>
+
+  <div style="position:absolute;left:120px;top:220px;right:120px;">
+    <div class="eyebrow anim d1">Letters of intent &middot; partnerships &middot; press</div>
+    <h2 class="title anim d2" style="margin-top:24px;max-width:1500px;">
+      Operators are signing.<br/>
+      Researchers are buying. <span class="italic" style="color:var(--slate);">Press is calling.</span>
+    </h2>
+  </div>
+
+  <!-- LOI bar / partner cards -->
+  <div style="position:absolute;left:120px;right:120px;top:560px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+    <div style="background:#fff;padding:32px 28px;border:1px solid var(--rule);">
+      <div class="spec-label" style="color:var(--spark);">LOI &middot; FLEET OPERATOR</div>
+      <div style="font-family:var(--serif);font-size:32px;margin-top:14px;font-style:italic;">Aero Fleet One</div>
+      <div class="hairline" style="margin:18px 0;"></div>
+      <div class="numeral" style="font-size:48px;">$2.4<span style="font-size:18px;color:var(--slate);">M</span></div>
+      <div class="spec-label" style="margin-top:8px;">POTENTIAL VALUE</div>
+    </div>
+    <div style="background:#fff;padding:32px 28px;border:1px solid var(--rule);">
+      <div class="spec-label" style="color:var(--spark);">LOI &middot; FLEET OPERATOR</div>
+      <div style="font-family:var(--serif);font-size:32px;margin-top:14px;font-style:italic;">AgroSpar</div>
+      <div class="hairline" style="margin:18px 0;"></div>
+      <div class="numeral" style="font-size:48px;">$1.9<span style="font-size:18px;color:var(--slate);">M</span></div>
+      <div class="spec-label" style="margin-top:8px;">POTENTIAL VALUE</div>
+    </div>
+    <div style="background:#fff;padding:32px 28px;border:1px solid var(--rule);">
+      <div class="spec-label" style="color:var(--spark);">FIELD-LAB REQUEST</div>
+      <div style="font-family:var(--serif);font-size:28px;margin-top:14px;font-style:italic;">USDA-ARS<br/><span style="font-size:20px;color:var(--slate);">Mississippi Lab</span></div>
+      <div class="hairline" style="margin:18px 0;"></div>
+      <div class="numeral" style="font-size:48px;">$680<span style="font-size:18px;color:var(--slate);">K</span></div>
+      <div class="spec-label" style="margin-top:8px;">POTENTIAL VALUE</div>
+    </div>
+    <div style="background:var(--ink);color:#fff;padding:32px 28px;">
+      <div class="spec-label" style="color:var(--spark);">DIRECT MARKET ACCESS</div>
+      <div style="font-family:var(--serif);font-size:28px;margin-top:14px;font-style:italic;">NAAA Member<br/><span style="font-size:20px;color:rgba(255,255,255,0.6);">National Ag Aviation Assoc.</span></div>
+      <div class="hairline" style="margin:18px 0;background:rgba(255,255,255,0.2);"></div>
+      <div class="numeral" style="font-size:48px;color:var(--spark);">~1,800</div>
+      <div class="spec-label" style="margin-top:8px;color:rgba(255,255,255,0.55);">US OPERATORS &middot; 1/3 OF MARKET</div>
+    </div>
+  </div>
+
+  <!-- Press strip -->
+  <div style="position:absolute;left:120px;right:120px;bottom:120px;padding:24px 32px;border:1px solid var(--rule);background:rgba(255,255,255,0.5);display:flex;align-items:center;justify-content:space-between;">
+    <div class="spec-label">FEATURED IN</div>
+    <div style="font-family:var(--serif);font-size:24px;font-style:italic;color:var(--graphite);">Daily Mirror &nbsp;&middot;&nbsp; The Independent &nbsp;&middot;&nbsp; Daily Express &nbsp;&middot;&nbsp; UAS Summit &nbsp;&middot;&nbsp; NAAA Convention</div>
+  </div>
+
+  <div class="footer">
+    <span>edison.aero</span>
+    <span>10 / 16</span>
+  </div>
+</section>
+
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     SLIDE 11 · GROUND CONTROL STATION
+     ═════════════════════════════════════════════════════════════════════ -->
+<section class="dusk" data-screen-label="11 Ground Station">
+  <div style="position:absolute;inset:0;background:linear-gradient(160deg,#15263F 0%,#0A1628 100%);"></div>
+
+  <div class="chrome">
+    <div class="brand-mark brand-logo"><img src="edison-logo.png" alt=""/><span class="brand-text">EDISON&nbsp;AEROSPACE</span></div>
+    <span>11 · Mobile Power &amp; Command Center</span>
+  </div>
+
+  <div style="position:absolute;left:120px;top:200px;width:760px;">
+    <div class="eyebrow anim d1">A complete operating environment</div>
+    <h2 class="title anim d2" style="margin-top:24px;color:#fff;">
+      Pilots fly from<br/><span class="italic amber">an air-conditioned trailer.</span>
+    </h2>
+    <p class="lede anim d3" style="margin-top:32px;color:rgba(255,255,255,0.78);">
+      Solar panels charge the aircraft.<br/>
+      A backup generator covers the dark.<br/>
+      Two pilots, two aircraft, no chemicals breathed.
+    </p>
+
+    <!-- mini specs -->
+    <div style="margin-top:48px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px 32px;">
+      <div>
+        <div class="spec-label" style="color:rgba(255,255,255,0.5);">MAIN BATTERY</div>
+        <div class="numeral" style="font-size:42px;color:#fff;margin-top:4px;">400<span style="font-size:18px;color:rgba(255,255,255,0.6);">&nbsp;kWh</span></div>
+      </div>
+      <div>
+        <div class="spec-label" style="color:rgba(255,255,255,0.5);">SOLAR ARRAY</div>
+        <div class="numeral" style="font-size:42px;color:#fff;margin-top:4px;">15<span style="font-size:18px;color:rgba(255,255,255,0.6);">&nbsp;kW</span></div>
+      </div>
+      <div>
+        <div class="spec-label" style="color:rgba(255,255,255,0.5);">RETAIL PRICE</div>
+        <div class="numeral" style="font-size:42px;color:var(--spark);margin-top:4px;">$280<span style="font-size:18px;color:rgba(255,255,255,0.6);">K</span></div>
+      </div>
+      <div>
+        <div class="spec-label" style="color:rgba(255,255,255,0.5);">SUPPORTS</div>
+        <div class="numeral" style="font-size:42px;color:#fff;margin-top:4px;">2<span style="font-size:18px;color:rgba(255,255,255,0.6);">&nbsp;aircraft</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GCS truck + trailer photo -->
+  <div style="position:absolute;right:60px;top:240px;width:980px;height:680px;">
+    <!-- photo container with frame -->
+    <div style="position:absolute;left:0;right:0;top:80px;height:480px;border:1px solid rgba(255,255,255,0.18);overflow:hidden;background:#0A1628;">
+      <img src="gcs-truck.jpg" alt="Edison Ground Control Station — truck and trailer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#0A1628;"/>
+      <!-- caption strip -->
+      <div style="position:absolute;left:0;right:0;bottom:0;padding:14px 24px;background:linear-gradient(180deg,transparent,rgba(13,20,33,0.9));color:rgba(255,255,255,0.7);font-family:var(--mono);font-size:11px;letter-spacing:0.25em;display:flex;justify-content:space-between;">
+        <span>FIG. 11-A &middot; GROUND CONTROL STATION</span>
+        <span>TRUCK + TRAILER &middot; PATENT PENDING</span>
+      </div>
+    </div>
+
+    <!-- annotations row below -->
+    <div style="position:absolute;left:0;right:0;top:580px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;color:rgba(255,255,255,0.65);">
+      <div>
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.25em;color:#5BE0B3;">01 &middot; SOLAR ARRAY</div>
+        <div class="body" style="font-size:14px;color:rgba(255,255,255,0.65);margin-top:6px;">Roof-deployed panels feed the main pack between sorties.</div>
+      </div>
+      <div>
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.25em;color:#5BE0B3;">02 &middot; HANGAR + BATTERY</div>
+        <div class="body" style="font-size:14px;color:rgba(255,255,255,0.65);margin-top:6px;">Two-aircraft hangar adjacent to a 400 kWh main pack.</div>
+      </div>
+      <div>
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.25em;color:#5BE0B3;">03 &middot; PILOT SUITE</div>
+        <div class="body" style="font-size:14px;color:rgba(255,255,255,0.65);margin-top:6px;">Climate-controlled flight deck with redundant comms.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>edison.aero</span>
+    <span>11 / 16</span>
+  </div>
+</section>
+
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     SLIDE 12 · DEFENSE
+     ═════════════════════════════════════════════════════════════════════ -->
+<section class="night" data-screen-label="12 Defense">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%, rgba(227,30,36,0.06), transparent 60%), linear-gradient(180deg,#0A1628 0%,#060E1C 100%);"></div>
+  <div class="stars"></div>
+
+  <div class="chrome">
+    <div class="brand-mark brand-logo"><img src="edison-logo.png" alt=""/><span class="brand-text">EDISON&nbsp;AEROSPACE</span></div>
+    <span>12 · Defense division</span>
+  </div>
+
+  <div style="position:absolute;left:120px;top:200px;width:880px;">
+    <div class="eyebrow anim d1">A second front</div>
+    <h2 class="title anim d2" style="margin-top:24px;color:#fff;">
+      The same airframe DNA,<br/>
+      <span class="italic amber">re-tasked for the warfighter.</span>
+    </h2>
+    <p class="lede anim d3" style="margin-top:32px;color:rgba(255,255,255,0.78);max-width:760px;">
+      Edison Defense develops unmanned platforms across land, sea, and air &mdash; designed to enable novel doctrine and minimize loss of life and materiel.
+    </p>
+    <div style="margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+      <div>
+        <div class="spec-label" style="color:rgba(255,255,255,0.5);">PROGRAM 01</div>
+        <div style="font-family:var(--serif);font-size:24px;color:#fff;margin-top:8px;">UNCV</div>
+        <div class="body" style="font-size:14px;color:rgba(255,255,255,0.6);margin-top:6px;">Unmanned Naval Combat Vessel</div>
+      </div>
+      <div>
+        <div class="spec-label" style="color:rgba(255,255,255,0.5);">PROGRAM 02</div>
+        <div style="font-family:var(--serif);font-size:24px;color:#fff;margin-top:8px;">UAV / Strike</div>
+        <div class="body" style="font-size:14px;color:rgba(255,255,255,0.6);margin-top:6px;">Aerial combat platform</div>
+      </div>
+      <div>
+        <div class="spec-label" style="color:rgba(255,255,255,0.5);">PROGRAM 03</div>
+        <div style="font-family:var(--serif);font-size:24px;color:#fff;margin-top:8px;">UAV / Recon</div>
+        <div class="body" style="font-size:14px;color:rgba(255,255,255,0.6);margin-top:6px;">Long-endurance reconnaissance</div>
+      </div>
+    </div>
+    <div style="margin-top:48px;padding:18px 24px;border-left:2px solid var(--spark);background:rgba(227,30,36,0.04);">
+      <div style="font-family:var(--serif);font-style:italic;font-size:22px;color:rgba(255,255,255,0.92);">
+        &ldquo;Decorated US Army Lt. Col. (Ret.) with NORAD JOC and SOCOM experience advising the program.&rdquo;
+      </div>
+      <div class="spec-label" style="color:rgba(255,255,255,0.5);margin-top:12px;">DR. THOMAS DE LA GARZA &middot; ADVISOR</div>
+    </div>
+  </div>
+
+  <!-- abstract topo / radar -->
+  <div style="position:absolute;right:80px;top:220px;width:760px;height:760px;">
+    <svg viewBox="0 0 760 760" style="width:100%;height:100%;">
+      <!-- radar rings -->
+      <g fill="none" stroke="rgba(91,224,179,0.18)" stroke-width="0.8">
+        <circle cx="380" cy="380" r="100"/>
+        <circle cx="380" cy="380" r="180"/>
+        <circle cx="380" cy="380" r="260"/>
+        <circle cx="380" cy="380" r="340"/>
+      </g>
+      <!-- crosshair -->
+      <line x1="0" y1="380" x2="760" y2="380" stroke="rgba(91,224,179,0.18)" stroke-width="0.5"/>
+      <line x1="380" y1="0" x2="380" y2="760" stroke="rgba(91,224,179,0.18)" stroke-width="0.5"/>
+
+      <!-- compass marks -->
+      <g font-family="JetBrains Mono" font-size="10" fill="rgba(91,224,179,0.6)" letter-spacing="2" text-anchor="middle">
+        <text x="380" y="30">000</text>
+        <text x="730" y="385">090</text>
+        <text x="380" y="745">180</text>
+        <text x="30" y="385">270</text>
+      </g>
+
+      <!-- targets -->
+      <g fill="#E31E24">
+        <circle cx="480" cy="280" r="3"/>
+        <circle cx="280" cy="440" r="3"/>
+        <circle cx="540" cy="500" r="3"/>
+      </g>
+      <g font-family="JetBrains Mono" font-size="9" fill="rgba(227,30,36,0.7)" letter-spacing="2">
+        <text x="490" y="276">TGT-01</text>
+        <text x="290" y="436">TGT-02</text>
+        <text x="550" y="496">TGT-03</text>
+      </g>
+
+      <!-- sweep -->
+      <g class="radar-sweep" style="transform-box:fill-box;transform-origin:center;"><path d="M 380 380 L 700 240 A 340 340 0 0 0 700 200 Z" fill="rgba(91,224,179,0.18)"/></g>
+
+      <text x="20" y="745" font-family="JetBrains Mono" font-size="10" fill="rgba(255,255,255,0.35)" letter-spacing="2">FIG. 12-A &middot; MULTI-DOMAIN OPS</text>
+    </svg>
+  </div>
+
+  <div class="footer">
+    <span>All Edison designs protected by US provisional patents</span>
+    <span>12 / 16</span>
+  </div>
+</section>
+
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     SLIDE 13 · TEAM
+     ═════════════════════════════════════════════════════════════════════ -->
+<section class="white" data-screen-label="13 Team">
+  <div class="chrome">
+    <div class="brand-mark brand-logo"><img src="edison-logo.png" alt=""/><span class="brand-text">EDISON&nbsp;AEROSPACE</span></div>
+    <span>13 · Team &amp; advisors</span>
+  </div>
+
+  <div style="position:absolute;left:120px;top:220px;right:120px;">
+    <div class="eyebrow anim d1">Operators &middot; engineers &middot; researchers</div>
+    <h2 class="title anim d2" style="margin-top:24px;max-width:1500px;">
+      Built by the <span class="italic amber">people closest</span><br/>
+      to the problem.
+    </h2>
+  </div>
+
+  <!-- Founders -->
+  <div style="position:absolute;left:120px;top:520px;display:grid;grid-template-columns:repeat(2,1fr);gap:48px;width:calc(100% - 240px);">
+
+    <div style="display:flex;gap:32px;border-top:2px solid var(--ink);padding-top:24px;">
+      <!-- portrait: Gene -->
+      <div style="width:140px;height:170px;border:1px solid var(--rule);flex-shrink:0;overflow:hidden;background:#0A1628;">
+        <img src="gene-avakyan.png" alt="Gene Avakyan" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:grayscale(0.15) contrast(1.05);"/>
+      </div>
+      <div>
+        <div class="spec-label" style="color:var(--spark);">CEO &middot; CO-FOUNDER</div>
+        <div style="font-family:var(--serif);font-size:42px;margin-top:8px;letter-spacing:-0.02em;">Gene Avakyan</div>
+        <div class="body" style="font-size:16px;color:var(--slate);margin-top:8px;">BS Aerospace Engineering, UCLA &middot; MBA Pepperdine. ~30 yrs technical leadership; currently consulting FAA on a $1.6B contract as senior architect.</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:32px;border-top:2px solid var(--ink);padding-top:24px;">
+      <!-- portrait: Victoria -->
+      <div style="width:140px;height:170px;border:1px solid var(--rule);flex-shrink:0;overflow:hidden;background:#0A1628;">
+        <img src="victoria-unikel.png" alt="Victoria Unikel" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;filter:grayscale(0.15) contrast(1.05);"/>
+      </div>
+      <div>
+        <div class="spec-label" style="color:var(--spark);">VP &middot; CO-FOUNDER</div>
+        <div style="font-family:var(--serif);font-size:42px;margin-top:8px;letter-spacing:-0.02em;">Victoria Unikel</div>
+        <div class="body" style="font-size:16px;color:var(--slate);margin-top:8px;">President of VUGA Enterprises &mdash; 100+ digital titles, 65M+ unique monthly visitors. Marketing agreement in place with Edison.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Advisors -->
+  <div style="position:absolute;left:120px;right:120px;bottom:120px;">
+    <div class="spec-label" style="margin-bottom:18px;">EXTENDED ADVISORY BENCH</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid var(--rule);padding-top:24px;">
+      <div>
+        <div style="font-family:var(--serif);font-size:20px;font-style:italic;">Dr. Thomas De La Garza</div>
+        <div class="body" style="font-size:14px;color:var(--slate);margin-top:6px;">LTC (Ret.), US Army &middot; NORAD JOC, SOCOM</div>
+      </div>
+      <div>
+        <div style="font-family:var(--serif);font-size:20px;font-style:italic;">Yong Hou, Ph.D.</div>
+        <div class="body" style="font-size:14px;color:var(--slate);margin-top:6px;">VP R&amp;D, Dakota Lithium &middot; NDSU Research Eng.</div>
+      </div>
+      <div>
+        <div style="font-family:var(--serif);font-size:20px;font-style:italic;">Leon Schumacher, Ph.D.</div>
+        <div class="body" style="font-size:14px;color:var(--slate);margin-top:6px;">Dept. Chair, Ag &amp; Biosystems Eng. &middot; NDSU</div>
+      </div>
+      <div>
+        <div style="font-family:var(--serif);font-size:20px;font-style:italic;">David B. Golubchik, Esq.</div>
+        <div class="body" style="font-size:14px;color:var(--slate);margin-top:6px;">Levene, Neale, Bender, Yoo &amp; Golubchik LLP</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>edison.aero</span>
+    <span>13 / 16</span>
+  </div>
+</section>
+
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     SLIDE 14 · ROADMAP / MILESTONES
+     ═════════════════════════════════════════════════════════════════════ -->
+<section class="paper" data-screen-label="14 Roadmap">
+  <div class="chrome">
+    <div class="brand-mark brand-logo"><img src="edison-logo.png" alt=""/><span class="brand-text">EDISON&nbsp;AEROSPACE</span></div>
+    <span>14 · Roadmap</span>
+  </div>
+
+  <div style="position:absolute;left:120px;top:220px;right:120px;">
+    <div class="eyebrow anim d1">Milestones to first delivery</div>
+    <h2 class="title anim d2" style="margin-top:24px;">From prototype to production line.</h2>
+  </div>
+
+  <!-- Timeline -->
+  <div style="position:absolute;left:120px;right:120px;top:540px;">
+    <!-- track -->
+    <div style="position:relative;height:1px;background:var(--ink);margin:80px 60px 40px 60px;">
+      <!-- nodes -->
+      <div style="position:absolute;left:0;top:50%;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;background:var(--spark);"></div>
+      <div style="position:absolute;left:25%;top:50%;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;background:var(--spark);"></div>
+      <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;background:#fff;border:2px solid var(--ink);"></div>
+      <div style="position:absolute;left:75%;top:50%;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;background:#fff;border:2px solid var(--ink);"></div>
+      <div style="position:absolute;left:100%;top:50%;transform:translate(-50%,-50%);width:14px;height:14px;border-radius:50%;background:#fff;border:2px solid var(--ink);"></div>
+
+      <!-- labels above -->
+      <div style="position:absolute;left:0;bottom:40px;transform:translateX(-50%);text-align:center;width:240px;">
+        <div class="spec-label" style="color:var(--spark);">Q4 &#39;22 &ndash; Q2 &#39;23</div>
+        <div style="font-family:var(--serif);font-size:22px;font-style:italic;margin-top:8px;">Seed &middot; Closed</div>
+      </div>
+      <div style="position:absolute;left:25%;bottom:40px;transform:translateX(-50%);text-align:center;width:240px;">
+        <div class="spec-label" style="color:var(--spark);">2026 &middot; CURRENT</div>
+        <div style="font-family:var(--serif);font-size:22px;font-style:italic;margin-top:8px;">Series A Open</div>
+      </div>
+      <div style="position:absolute;left:50%;bottom:40px;transform:translateX(-50%);text-align:center;width:240px;">
+        <div class="spec-label">Q4 2026</div>
+        <div style="font-family:var(--serif);font-size:22px;font-style:italic;margin-top:8px;">FAA Experimental</div>
+      </div>
+      <div style="position:absolute;left:75%;bottom:40px;transform:translateX(-50%);text-align:center;width:240px;">
+        <div class="spec-label">2028</div>
+        <div style="font-family:var(--serif);font-size:22px;font-style:italic;margin-top:8px;">Type Cert + Part 137</div>
+      </div>
+      <div style="position:absolute;left:100%;bottom:40px;transform:translateX(-50%);text-align:center;width:240px;">
+        <div class="spec-label">2028+</div>
+        <div style="font-family:var(--serif);font-size:22px;font-style:italic;margin-top:8px;">Mass Production</div>
+      </div>
+
+      <!-- descriptions below -->
+      <div style="position:absolute;left:0;top:40px;transform:translateX(-50%);text-align:center;width:260px;">
+        <div class="body" style="font-size:14px;color:var(--slate);">$50K seed. Traction validation, preliminary design, marketing campaign.</div>
+      </div>
+      <div style="position:absolute;left:25%;top:40px;transform:translateX(-50%);text-align:center;width:260px;">
+        <div class="body" style="font-size:14px;color:var(--slate);">$10M raise. Build certification prototypes of Heavy1.</div>
+      </div>
+      <div style="position:absolute;left:50%;top:40px;transform:translateX(-50%);text-align:center;width:260px;">
+        <div class="body" style="font-size:14px;color:var(--slate);">SACEC certification. Begin type-cert process &amp; field demos.</div>
+      </div>
+      <div style="position:absolute;left:75%;top:40px;transform:translateX(-50%);text-align:center;width:260px;">
+        <div class="body" style="font-size:14px;color:var(--slate);">Full type certification, FAA Part 137, first commercial delivery.</div>
+      </div>
+      <div style="position:absolute;left:100%;top:40px;transform:translateX(-50%);text-align:center;width:260px;">
+        <div class="body" style="font-size:14px;color:var(--slate);">Production line scale-up; expand mfg capacity to fleet demand.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>edison.aero</span>
+    <span>14 / 16</span>
+  </div>
+</section>
+
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     SLIDE 15 · THE ASK
+     ═════════════════════════════════════════════════════════════════════ -->
+<section class="dusk" data-screen-label="15 The Ask">
+  <div style="position:absolute;inset:0;background:
+    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(227,30,36,0.18), transparent 70%),
+    linear-gradient(140deg,#0A1628 0%, #15263F 100%);"></div>
+  <div class="stars"></div>
+
+  <div class="chrome">
+    <div class="brand-mark brand-logo"><img src="edison-logo.png" alt=""/><span class="brand-text">EDISON&nbsp;AEROSPACE</span></div>
+    <span>15 · The ask</span>
+  </div>
+
+  <div style="position:absolute;left:120px;top:220px;width:1100px;">
+    <div class="eyebrow anim d1">Series A &middot; open</div>
+    <h1 class="title anim d2" style="margin-top:24px;color:#fff;">
+      Raising <span class="italic amber">$10M</span><br/>
+      on a $50M pre-money.
+    </h1>
+    <p class="lede anim d3" style="margin-top:36px;color:rgba(255,255,255,0.85);max-width:1000px;">
+      To build certification prototypes, secure FAA SACEC + Part 137,
+      and hit production line ignition by 2027.
+    </p>
+  </div>
+
+  <!-- use of funds -->
+  <div style="position:absolute;right:120px;top:220px;width:560px;">
+    <div class="spec-label" style="color:rgba(255,255,255,0.55);margin-bottom:18px;">USE OF PROCEEDS</div>
+    <div style="border-top:1px solid rgba(255,255,255,0.3);padding:18px 0;display:flex;justify-content:space-between;align-items:baseline;">
+      <span style="font-family:var(--serif);font-style:italic;font-size:22px;color:#fff;">Engineering &amp; certification</span>
+      <span class="numeral" style="font-size:32px;color:#fff;">45%</span>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.15);padding:18px 0;display:flex;justify-content:space-between;align-items:baseline;">
+      <span style="font-family:var(--serif);font-style:italic;font-size:22px;color:#fff;">Manufacturing tooling</span>
+      <span class="numeral" style="font-size:32px;color:#fff;">25%</span>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.15);padding:18px 0;display:flex;justify-content:space-between;align-items:baseline;">
+      <span style="font-family:var(--serif);font-style:italic;font-size:22px;color:#fff;">Hiring &middot; ops</span>
+      <span class="numeral" style="font-size:32px;color:#fff;">20%</span>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.15);border-bottom:1px solid rgba(255,255,255,0.3);padding:18px 0;display:flex;justify-content:space-between;align-items:baseline;">
+      <span style="font-family:var(--serif);font-style:italic;font-size:22px;color:#fff;">GTM &amp; reserves</span>
+      <span class="numeral" style="font-size:32px;color:#fff;">10%</span>
+    </div>
+  </div>
+
+  <!-- Comparables strip -->
+  <div style="position:absolute;left:120px;right:120px;bottom:130px;">
+    <div class="spec-label" style="color:rgba(255,255,255,0.55);margin-bottom:14px;">COMPARABLE COMPANIES</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;border-top:1px solid rgba(255,255,255,0.3);padding-top:18px;">
+      <div>
+        <div style="font-family:var(--serif);font-size:24px;font-style:italic;color:#fff;">Anduril</div>
+        <div class="spec-label" style="color:rgba(255,255,255,0.5);margin-top:6px;">$8.5B VAL &middot; DEFENSE</div>
+      </div>
+      <div>
+        <div style="font-family:var(--serif);font-size:24px;font-style:italic;color:#fff;">Joby Aviation</div>
+        <div class="spec-label" style="color:rgba(255,255,255,0.5);margin-top:6px;">IPO @ $835M &middot; eVTOL</div>
+      </div>
+      <div>
+        <div style="font-family:var(--serif);font-size:24px;font-style:italic;color:#fff;">AirTractor</div>
+        <div class="spec-label" style="color:rgba(255,255,255,0.5);margin-top:6px;">$750M VAL &middot; AG</div>
+      </div>
+      <div>
+        <div style="font-family:var(--serif);font-size:24px;font-style:italic;color:#fff;">Pyka</div>
+        <div class="spec-label" style="color:rgba(255,255,255,0.5);margin-top:6px;">$50M VAL &middot; ELEC AG</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>edison.aero</span>
+    <span>15 / 16</span>
+  </div>
+</section>
+
+
+<!-- ═════════════════════════════════════════════════════════════════════
+     SLIDE 16 · CLOSING / CONTACT
+     ═════════════════════════════════════════════════════════════════════ -->
+<section class="night" data-screen-label="16 Contact">
+  <div style="position:absolute;inset:0;background:
+    radial-gradient(ellipse 120% 80% at 50% 120%, rgba(227,30,36,0.18), transparent 60%),
+    linear-gradient(180deg,#060E1C 0%, #0A1628 50%, #15263F 100%);"></div>
+  <div class="stars"></div>
+
+  <!-- horizon glow -->
+  <div style="position:absolute;left:0;right:0;bottom:160px;height:1px;background:linear-gradient(90deg,transparent,rgba(227,30,36,0.6) 50%,transparent);"></div>
+
+  <!-- climbing aircraft on a vector -->
+  <svg style="position:absolute;right:140px;top:120px;" width="320" height="200" viewBox="-160 -100 320 200">
+    <line x1="-150" y1="80" x2="120" y2="-60" stroke="rgba(227,30,36,0.4)" stroke-width="0.8" stroke-dasharray="3 5"/>
+    <g transform="translate(120 -60) rotate(-28)">
+      <path d="M -90 -1 L 90 -1 L 80 1 L -80 1 Z" fill="rgba(255,255,255,0.95)"/>
+      <ellipse cx="0" cy="0" rx="60" ry="3" fill="rgba(255,255,255,0.95)"/>
+      <path d="M -58 -10 L -50 0 L -52 -10 Z" fill="rgba(255,255,255,0.95)"/>
+      <circle cx="58" cy="0" r="3" fill="#E31E24"/>
+    </g>
+  </svg>
+
+  <div class="chrome">
+    <div class="brand-mark brand-logo"><img src="edison-logo.png" alt=""/><span class="brand-text">EDISON&nbsp;AEROSPACE</span></div>
+    <span>Thank you</span>
+  </div>
+
+  <div style="position:absolute;left:120px;top:220px;right:120px;">
+    <div class="eyebrow anim d1">Let&#8217;s build the next chapter</div>
+    <h1 class="display anim d2" style="margin-top:24px;color:#fff;font-size:128px;line-height:1.0;">
+      Safer.<br/>Cheaper.<br/>Greener. <span class="italic amber">Better.</span>
+    </h1>
+  </div>
+
+  <!-- contact card -->
+  <div style="position:absolute;left:120px;right:120px;bottom:96px;display:grid;grid-template-columns:auto 1fr auto;gap:48px;align-items:end;border-top:1px solid rgba(255,255,255,0.3);padding-top:36px;">
+    <div>
+      <div class="spec-label" style="color:rgba(255,255,255,0.55);">CONTACT</div>
+      <div style="font-family:var(--serif);font-size:36px;color:#fff;margin-top:8px;font-style:italic;">Gene Avakyan</div>
+      <div class="body" style="color:rgba(255,255,255,0.7);margin-top:4px;">CEO &amp; Co-founder</div>
+    </div>
+    <div>
+      <div class="spec-label" style="color:rgba(255,255,255,0.55);">REACH</div>
+      <div style="font-family:var(--mono);font-size:18px;color:#fff;margin-top:14px;line-height:1.7;">
+        gene@edison.aero<br/>
+        +1 310 210 2026<br/>
+        edison.aero
+      </div>
+    </div>
+    <div style="text-align:right;">
+      <div class="spec-label" style="color:rgba(255,255,255,0.55);">HQ</div>
+      <div class="body" style="color:rgba(255,255,255,0.85);margin-top:14px;font-family:var(--mono);font-size:16px;line-height:1.7;">
+        18117 Biscayne Blvd #1039<br/>
+        Aventura, FL 33160
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span style="font-family:var(--serif);font-style:italic;letter-spacing:0;text-transform:none;font-size:14px;color:rgba(255,255,255,0.55);">Revolutionizing the existing aerial application industry &mdash; not replacing it.</span>
+    <span>16 / 16</span>
+  </div>
+</section>
+
+</deck-stage>
+
+<script>
+// Animation safety net: ensure .anim elements visibly animate when their
+// slide becomes active. CSS-only gating can stall when slides are toggled
+// via attribute change while parent visibility flips — force a restart.
+(function () {
+  const ds = document.querySelector('deck-stage');
+  if (!ds) return;
+
+  function activateAnims(slide) {
+    if (!slide) return;
+    const SEL = '.anim, .anim-fade, .anim-scale, .anim-bar, .anim-ring, .anim-fly, .anim-climb, .anim-draw';
+    const els = slide.querySelectorAll(SEL);
+    // Reset any prior !important inline overrides so the CSS animation can run cleanly.
+    els.forEach((el) => {
+      el.style.removeProperty('opacity');
+      el.style.removeProperty('transform');
+      el.style.removeProperty('animation');
+    });
+    // The deck-stage hides non-active slides with visibility:hidden, which
+    // can leave CSS animations stuck at currentTime=0 when the slide is
+    // re-shown. Force-restart each animation by toggling the .anim class
+    // off and on across a reflow.
+    requestAnimationFrame(() => {
+      els.forEach((el) => {
+        const had = el.classList.contains('anim');
+        const cls = ['anim', 'anim-fade', 'anim-scale', 'anim-bar', 'anim-ring', 'anim-fly', 'anim-climb', 'anim-draw']
+          .filter(c => el.classList.contains(c));
+        cls.forEach(c => el.classList.remove(c));
+        // Force reflow.
+        // eslint-disable-next-line no-unused-expressions
+        void el.offsetHeight;
+        cls.forEach(c => el.classList.add(c));
+      });
+    });
+
+    // Belt-and-suspenders fallback: if computed opacity is still < 0.9 after
+    // the maximum expected total duration, forcibly set the final visible
+    // state inline so content is never hidden.
+    setTimeout(() => {
+      slide.querySelectorAll(SEL).forEach((el) => {
+        const cs = getComputedStyle(el);
+        if (parseFloat(cs.opacity) < 0.9) {
+          try { el.getAnimations().forEach((a) => { try { a.finish(); } catch (_e) {} }); } catch (e) {}
+          el.style.setProperty('opacity', '1', 'important');
+          if (!el.matches('.anim-fly, .anim-climb, .anim-bar, .anim-ring, .anim-scale')) {
+            el.style.setProperty('transform', 'none', 'important');
+          }
+        }
+      });
+    }, 1800);
+    // Hard final guarantee at 3.5s.
+    setTimeout(() => {
+      slide.querySelectorAll(SEL).forEach((el) => {
+        const cs = getComputedStyle(el);
+        if (parseFloat(cs.opacity) < 0.9) {
+          el.style.setProperty('opacity', '1', 'important');
+        }
+      });
+    }, 3500);
+  }
+
+  // Run on every slide change.
+  ds.addEventListener('slidechange', (e) => {
+    activateAnims(e.detail && e.detail.slide);
+  });
+
+  // Also run once on initial load, after deck-stage has set the first active slide.
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const active = ds.querySelector('section[data-deck-active]');
+      activateAnims(active);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
