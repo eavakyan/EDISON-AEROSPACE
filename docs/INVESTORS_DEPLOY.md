@@ -12,6 +12,17 @@ End-to-end flow:
 
 ---
 
+## ⚠️ Critical: deploy path
+
+Hostinger's FTP user `u661589486.edison.aero` lands in the **home directory**
+on login, **not** the document root. The document root is `/public_html/`.
+**All deploy paths in this runbook target `/public_html/...`** — never the
+bare `/`. Files placed at `/` are not web-served and just waste space.
+
+There is also a Hostinger-managed `/public_html/.private/` directory; the
+`mirror` command excludes it via `--exclude "^\.private/"`. Don't remove that
+exclusion or you'll trash the host's cert/config files.
+
 ## Prerequisites (one-time)
 
 - **FTP host:** `ftp://147.93.42.51`
@@ -40,7 +51,7 @@ Alternatively, via lftp:
 
 ```bash
 lftp -u u661589486.edison.aero ftp://147.93.42.51 \
-  -e "mrm -r public_html/*; bye"
+  -e "mrm -r /public_html/*; bye"
 ```
 
 ### 1.3 Upload secrets.php (once, never again)
@@ -67,7 +78,7 @@ Upload it:
 ```bash
 lftp -u u661589486.edison.aero ftp://147.93.42.51 -e "
   mkdir -p public_html/investors/_config
-  put /tmp/edison-secrets.php -o public_html/investors/_config/secrets.php
+  put /tmp/edison-secrets.php -o /public_html/investors/_config/secrets.php
   bye
 "
 rm /tmp/edison-secrets.php
@@ -93,7 +104,7 @@ lftp -u "u661589486.edison.aero,$FTP_PASSWORD" ftp://147.93.42.51 -e "
     --exclude-glob .DS_Store \
     --exclude-glob investors/_data/*.jsonl \
     --exclude-glob investors/_config/secrets.php \
-    . public_html
+    . /public_html
   bye
 "
 unset FTP_PASSWORD
@@ -115,7 +126,7 @@ If you only changed one file and want to skip the full mirror:
 
 ```bash
 lftp -u "u661589486.edison.aero,$FTP_PASSWORD" ftp://147.93.42.51 -e "
-  put -O public_html/investors/api/ investors/api/request-access.php
+  put -O /public_html/investors/api/ investors/api/request-access.php
   bye
 "
 ```
@@ -152,7 +163,7 @@ want a fresh export.
 ```bash
 # Pull the leads file
 lftp -u "u661589486.edison.aero,$FTP_PASSWORD" ftp://147.93.42.51 -e "
-  get public_html/investors/_data/leads.jsonl -o ~/edison-leads.jsonl
+  get /public_html/investors/_data/leads.jsonl -o ~/edison-leads.jsonl
   bye
 "
 
@@ -188,7 +199,7 @@ the same way as `leads.jsonl`:
 
 ```bash
 lftp -u "u661589486.edison.aero,$FTP_PASSWORD" ftp://147.93.42.51 -e "
-  get public_html/investors/api/error_log -o ~/edison-php-errors.log
+  get /public_html/investors/api/error_log -o ~/edison-php-errors.log
   bye
 "
 ```
@@ -197,7 +208,7 @@ lftp -u "u661589486.edison.aero,$FTP_PASSWORD" ftp://147.93.42.51 -e "
 
 ## 6. File reference
 
-| Path on server (under `public_html/`) | Purpose |
+| Path on server (all under `/public_html/`) | Purpose |
 |---------------------------------------|---------|
 | `index.html` ... `seawatch.html` | Static marketing pages |
 | `css/global.css`, `css/investors.css` | Site styles |

@@ -24,7 +24,7 @@ Edison Aerospace corporate website — a fully static, pixel-perfect replica of 
 
 - **Platform:** Hostinger **shared PHP hosting** (NOT a VPS). FTP-only access; no SSH, no systemd, no custom nginx.
 - **FTP:** `ftp://147.93.42.51`, user `u661589486.edison.aero` (password kept off-repo)
-- **Web root on server:** `/home/u661589486/domains/edison.aero/public_html/` (or `/public_html/` depending on the account layout — verify on first connect)
+- **FTP login lands in the user's home dir** (one level above the document root). The document root is `/public_html/`. **Always deploy to `/public_html/`, never to `/`.** The bare `/` is the chroot home and not web-served.
 - **DNS:** Cloudflare-proxied. Apex resolves to a Cloudflare IP; origin is `147.93.42.51`.
 - **SSL:** Managed by the host / Cloudflare; nothing for us to configure.
 - **Deploy:** `lftp mirror -R` from the local repo to the FTP server. See `docs/INVESTORS_DEPLOY.md` for the runbook. The previous GitHub Actions rsync workflow has been removed — it required SSH which this host doesn't provide.
@@ -155,12 +155,16 @@ See `docs/INVESTORS_DEPLOY.md` for the full FTP runbook. Short version:
 
 ```bash
 # One-time: install lftp (brew install lftp)
-# Each deploy:
-lftp -e "mirror -R --delete --exclude '\.git/' --exclude 'claude_docs/' --exclude 'docs/' --exclude '\.DS_Store' --exclude 'investors/_data/' --exclude 'investors/_config/secrets\.php' . / && bye" \
-  -u u661589486.edison.aero,$FTP_PASSWORD ftp://147.93.42.51
+# Each deploy — note the target is /public_html, NOT /
+MIRROR='mirror -R --delete --verbose --no-perms --exclude-glob .git/ --exclude-glob .gitignore --exclude-glob claude_docs/ --exclude-glob docs/ --exclude-glob CLAUDE.md --exclude-glob .DS_Store --exclude-glob "investors/_data/*.jsonl" --exclude-glob "investors/_config/secrets.php" --exclude "^\.private/" . /public_html'
+
+lftp -u "u661589486.edison.aero,$FTP_PASSWORD" ftp://147.93.42.51 \
+  -e "set ftp:ssl-allow yes; set ssl:verify-certificate no; set net:max-retries 5; set net:timeout 60; set ftp:passive-mode true; $MIRROR; bye"
 ```
 
-`investors/_config/secrets.php` is uploaded **separately** (one time) and stays on the server. `investors/_data/` is runtime data and is never deployed from local.
+`investors/_config/secrets.php` is uploaded **separately** (one time) and stays on the server at `/public_html/investors/_config/secrets.php`. `investors/_data/` is runtime data and is never deployed from local.
+
+**lftp gotcha:** put the entire `mirror` command on a single line (no `\\` line continuations). Bash `\\<newline>` collapses to `\<newline>` which lftp parses as separate commands, breaking the flag list.
 
 ## Content Source
 
