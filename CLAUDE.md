@@ -14,10 +14,20 @@ Edison Aerospace corporate website — a fully static, pixel-perfect replica of 
 - **HTML5** — Semantic markup, Schema.org JSON-LD structured data
 - **CSS3** — Custom properties for theming, no preprocessor, no framework
 - **Vanilla JavaScript (ES6+)** — No transpilation, no bundling
-- **Nginx** — Static file serving on Linux VPS
-- **Let's Encrypt** — SSL via Certbot
+- **PHP 8.3** — Backend logic for the investor gate (`/investors/api/*.php`). Runs natively on the host.
+- **LiteSpeed Web Server** (Apache-compatible, honors `.htaccess`) — managed by Hostinger
+- **Cloudflare** — DNS + reverse proxy (orange cloud) in front of the apex domain
 
-**Explicitly NO:** Astro, React, TypeScript, pnpm, npm, node_modules, build steps, Docker (optional). The generated architecture docs reference Astro — ignore those references and use plain HTML/CSS/JS instead.
+**Explicitly NO:** Astro, React, TypeScript, pnpm, npm, node_modules, build steps, Docker, Node.js services, systemd. The generated architecture docs reference Astro — ignore them.
+
+## Hosting & Deploy
+
+- **Platform:** Hostinger **shared PHP hosting** (NOT a VPS). FTP-only access; no SSH, no systemd, no custom nginx.
+- **FTP:** `ftp://147.93.42.51`, user `u661589486.edison.aero` (password kept off-repo)
+- **Web root on server:** `/home/u661589486/domains/edison.aero/public_html/` (or `/public_html/` depending on the account layout — verify on first connect)
+- **DNS:** Cloudflare-proxied. Apex resolves to a Cloudflare IP; origin is `147.93.42.51`.
+- **SSL:** Managed by the host / Cloudflare; nothing for us to configure.
+- **Deploy:** `lftp mirror -R` from the local repo to the FTP server. See `docs/INVESTORS_DEPLOY.md` for the runbook. The previous GitHub Actions rsync workflow has been removed — it required SSH which this host doesn't provide.
 
 ## File Structure
 
@@ -141,10 +151,16 @@ Bottom bar with Accept/Decline. GA4 only loads after Accept. Preference stored i
 
 ## Deployment
 
-- **Server:** Linux VPS, Nginx serving static files from `/var/www/edison-aerospace/`
-- **SSL:** Let's Encrypt + Certbot auto-renewal
-- **CI/CD:** GitHub Actions → rsync to VPS on push to `main`
-- **Manual fallback:** `rsync -avz --delete ./ user@vps:/var/www/edison-aerospace/`
+See `docs/INVESTORS_DEPLOY.md` for the full FTP runbook. Short version:
+
+```bash
+# One-time: install lftp (brew install lftp)
+# Each deploy:
+lftp -e "mirror -R --delete --exclude '\.git/' --exclude 'claude_docs/' --exclude 'docs/' --exclude '\.DS_Store' --exclude 'investors/_data/' --exclude 'investors/_config/secrets\.php' . / && bye" \
+  -u u661589486.edison.aero,$FTP_PASSWORD ftp://147.93.42.51
+```
+
+`investors/_config/secrets.php` is uploaded **separately** (one time) and stays on the server. `investors/_data/` is runtime data and is never deployed from local.
 
 ## Content Source
 
@@ -154,3 +170,4 @@ All content should be scraped/replicated from https://edison.aero. The goal is a
 
 - **2026-03-08:** Project initialized. Completed AI Harness Creator interview (9 stages). Generated 6 project docs (PRD, Architecture, Data Model, Implementation Plan, Deployment Spec, UI Spec). Note: generated docs reference Astro framework — override with pure HTML/CSS/JS approach. GitHub repo created at eavakyan/EDISON-AEROSPACE.
 - **2026-03-10:** Updated content on defense.html (UNCV) and seawatch.html (SeaWatch) to clarify platform distinctions. UNCV: dual-mode vessel (fast surface + slow underwater submersible), does not fly. SeaWatch: ground-effect aircraft that flies above water, can climb to 500 ft as designed operational capability (not emergency-only). Updated overview text, capabilities sections, specs tables, integration sections, meta/SEO tags, and JSON-LD schema on both pages.
+- **2026-04-26:** Built Investor area: `/investors/access.html` (gate form, public) and `/investors/` (gated deck). Soft-wall flow: name+email → magic-link verification → HttpOnly session cookie (30-day) → deck. **First built as a Node/Fastify service** (`api/` folder, commit `a6a6581`) before discovering this is Hostinger shared PHP hosting, not a VPS — Node was unrunnable here. **Pivoted to PHP 8.3** (`investors/api/*.php`, `investors/_protected/`, `investors/_config/`, `investors/_data/`). Same UX, same Resend email integration, same JSONL lead capture. Removed the SSH rsync GitHub Actions workflow; replaced with `lftp` deploy.

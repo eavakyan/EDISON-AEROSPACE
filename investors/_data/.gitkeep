@@ -1,0 +1,2 @@
+# Runtime data (leads, consumed tokens, rate-limit state) is written here by PHP.
+# Files are gitignored. Directory is denied web access via sibling .htaccess.

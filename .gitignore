@@ -1,3 +1,8 @@
 .DS_Store
 **/.DS_Store
 *.log
+
+# Investor-gate runtime data (live on server, never in git)
+investors/_data/*.jsonl
+# Investor-gate secrets (real values stay on server only)
+investors/_config/secrets.php

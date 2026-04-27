@@ -13,9 +13,24 @@
   const resendLink = document.getElementById('investor-resend');
   const status = document.getElementById('form-status');
   const submitBtn = form.querySelector('.investors-submit');
-  const endpoint = form.dataset.endpoint || '/api/investors/request-access';
+  const endpoint = form.dataset.endpoint || '/investors/api/request-access.php';
 
   const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // Show a banner if redirected back from /investors/api/verify.php with ?error=...
+  (function showInboundError() {
+    const params = new URLSearchParams(window.location.search);
+    const err = params.get('error');
+    if (!err) return;
+    const messages = {
+      expired:       'That link has expired. Please request a new one below.',
+      already_used:  'That link has already been used. Sign in again or request a new one below.',
+      bad_signature: 'That link is invalid. Please request a new one below.',
+      malformed:     'That link is invalid. Please request a new one below.',
+      invalid:       'That link is invalid. Please request a new one below.',
+    };
+    setStatus(messages[err] || 'Verification failed. Please request a new link below.', 'error');
+  })();
 
   function setStatus(msg, kind) {
     status.textContent = msg || '';
