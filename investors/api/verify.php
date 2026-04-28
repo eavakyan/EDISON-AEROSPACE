@@ -6,6 +6,7 @@ require_once __DIR__ . '/_lib/tokens.php';
 require_once __DIR__ . '/_lib/email.php';
 require_once __DIR__ . '/_lib/storage.php';
 require_once __DIR__ . '/_lib/rate_limit.php';
+require_once __DIR__ . '/_lib/crm.php';
 
 // Rate limit (per-IP) — verify is fairly lightweight but worth bounding.
 $ip = client_ip();
@@ -56,6 +57,13 @@ if (!mark_token_consumed($jti)) {
 $notifyResult = send_lead_notification($lead);
 if (!$notifyResult['ok']) {
     error_log('[edison] lead notification failed: ' . ($notifyResult['error'] ?? 'unknown'));
+}
+
+// Mirror verified lead into the VUGA CRM. Best-effort, runs in parallel
+// with the existing email path until we confirm the CRM is receiving.
+$crmResult = send_to_crm($lead);
+if (!$crmResult['ok']) {
+    error_log('[edison] crm forward failed: status=' . ($crmResult['status'] ?? '?') . ' err=' . ($crmResult['error'] ?? 'unknown'));
 }
 
 // Set the session cookie. Must happen before any output.

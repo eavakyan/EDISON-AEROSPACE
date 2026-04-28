@@ -445,7 +445,13 @@
         <div class="footer-col">
           <h4>Stay Updated</h4>
           <p>Subscribe to our newsletter for the latest updates.</p>
-          <form class="newsletter-form" action="https://mailchimp.com/placeholder" method="POST">
+          <form class="newsletter-form" action="https://crm.vugagroup.com/api/submit" method="POST" aria-label="Newsletter signup">
+            <input type="hidden" name="site_id" value="edison.aero">
+            <input type="hidden" name="form_type" value="newsletter">
+            <input type="hidden" name="_redirect" value="https://edison.aero/thank-you.html">
+            <input type="hidden" name="_timestamp" value="">
+            <input type="hidden" name="_page_url" value="">
+            <input type="text" name="_website" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
             <input type="email" name="email" placeholder="Your email address" required aria-label="Email for newsletter">
             <button type="submit" class="btn btn-magenta">Subscribe</button>
           </form>

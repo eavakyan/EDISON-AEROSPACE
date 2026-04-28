@@ -3,6 +3,21 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   // ============================================
+  // CRM form prep — set _timestamp + _page_url on every form
+  // The CRM uses these to score spam server-side; the values
+  // must reflect when the page rendered, not when the form
+  // was authored. Bots that POST without rendering won't have them.
+  // ============================================
+  var nowMs = Date.now();
+  var pageUrl = window.location.href;
+  document.querySelectorAll('form').forEach(function (f) {
+    var ts = f.querySelector('input[name="_timestamp"]');
+    if (ts && !ts.value) ts.value = String(nowMs);
+    var pu = f.querySelector('input[name="_page_url"]');
+    if (pu && !pu.value) pu.value = pageUrl;
+  });
+
+  // ============================================
   // Sticky Header Scroll Effect
   // ============================================
   var header = document.getElementById('site-header');
